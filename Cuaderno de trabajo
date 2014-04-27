@@ -1,4 +1,4 @@
-Aqui vamos a ir poniendo las decisiones que tomemos, tal y como pone en el anteproyecto.
+﻿Aqui vamos a ir poniendo las decisiones que tomemos, tal y como pone en el anteproyecto.
 
 1- 23/03/2014 Hemos elegido usar Symfony2 como framework en PHP.
 2- 28/03/2014 Se ha programado una reunión el miércoles dia 2 de abril por la tarde.
@@ -7,4 +7,6 @@ Aqui vamos a ir poniendo las decisiones que tomemos, tal y como pone en el antep
   https://basecamp.com/2600381/projects/5527793-mdm
 5- Hemos empezado a crear el modelo entidad relación de la base de datos
   (ver cuaderno de trabajo de base de datos)
-6- 22/04/2014 Hemos creado un primer bundle en el proyecto. 
+6- 13/04/2014 Hemos creado un documento en /Documentacion/interna/GIT proyecto.doc explicando 
+    como vamos a usar las ramas en GIT y con algunos comandos básicos de GIT.
+7- 22/04/2014 Hemos creado un primer bundle en el proyecto. 
