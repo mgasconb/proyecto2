@@ -555,3 +555,7 @@
 [2014-04-11 17:29:05] event.DEBUG: Notified event "kernel.finish_request" to listener "Symfony\Component\Security\Http\Firewall::onKernelFinishRequest". [] []
 [2014-04-11 17:29:05] event.DEBUG: Notified event "kernel.terminate" to listener "Symfony\Bundle\SwiftmailerBundle\EventListener\EmailSenderListener::onTerminate". [] []
 [2014-04-11 17:29:05] event.DEBUG: Notified event "kernel.terminate" to listener "Symfony\Component\HttpKernel\EventListener\ProfilerListener::onKernelTerminate". [] []
+[2014-04-22 18:24:15] event.DEBUG: Notified event "console.command" to listener "Symfony\Bridge\Monolog\Handler\ConsoleHandler::onCommand". [] []
+[2014-04-22 18:31:43] event.DEBUG: Notified event "console.command" to listener "Symfony\Bridge\Monolog\Handler\ConsoleHandler::onCommand". [] []
+[2014-04-22 18:32:41] event.DEBUG: Notified event "console.terminate" to listener "Symfony\Bridge\Monolog\Handler\ConsoleHandler::onTerminate". [] []
+[2014-04-22 18:32:41] event.DEBUG: Notified event "console.terminate" to listener "Symfony\Bundle\SwiftmailerBundle\EventListener\EmailSenderListener::onTerminate". [] []
