@@ -12,13 +12,11 @@ use Doctrine\ORM\Mapping as ORM;
 
 class Tasks{
     
-    private  $tarID;
+    private  $rolID;
     
-    private $tarnombre;
+    private $rolnombre;
     
-    private $targrupoID;
+    private $roldescripcion;
     
-    private $tarotros;
-   
 }
 
