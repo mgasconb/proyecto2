@@ -9,7 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Entity
  */
 
-class Groups{
+class Roles_permissions{
     
     private  $rpID;
     
