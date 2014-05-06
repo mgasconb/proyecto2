@@ -17,6 +17,6 @@ class Tasks{
     private $rolnombre;
     
     private $roldescripcion;
-    
+   
 }
 
