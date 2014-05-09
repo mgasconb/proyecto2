@@ -10,3 +10,4 @@
 6- 13/04/2014 Hemos creado un documento en /Documentacion/interna/GIT proyecto.doc explicando 
     como vamos a usar las ramas en GIT y con algunos comandos básicos de GIT.
 7- 22/04/2014 Hemos creado un primer bundle en el proyecto. 
+8- 08/05/2014 Hemos empezado a crear las clases para usar SQL con Doctrine como ORM.
