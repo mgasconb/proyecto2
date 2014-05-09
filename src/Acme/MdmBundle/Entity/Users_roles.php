@@ -11,10 +11,13 @@ use Doctrine\ORM\Mapping as ORM;
 
 class Users_roles{
     
+    /** @Column(type="integer") */
     private  $urID;
     
+    /** @Column(type="integer") */
     private $urrolID;
     
+    /** @Column(type="integer") */
     private $urusrID;
     
 }
