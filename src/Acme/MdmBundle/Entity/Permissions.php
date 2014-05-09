@@ -12,10 +12,13 @@ use Doctrine\ORM\Mapping as ORM;
 
 class Permissions{
     
+    /** @Column(type="integer") */
     private  $perID;
     
+    /** @Column(length=45) */
     private $pernombre;
     
+    /** @Column(length=45) */
     private $perdescripcion;
     
 }
