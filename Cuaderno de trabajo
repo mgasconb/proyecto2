@@ -6,14 +6,9 @@
 4- 02/04/2014 Hemos creado un proyecto en la web Basecamp.com para la organizacion del proyecto
     https://basecamp.com/2600381/projects/5527793-mdm
 5- Hemos empezado a crear el modelo entidad relación de la base de datos
-<<<<<<< HEAD
     (ver cuaderno de trabajo de base de datos)
 6- 13/04/2014 Hemos creado un documento en /Documentacion/interna/GIT proyecto.doc explicando 
     como vamos a usar las ramas en GIT y con algunos comandos básicos de GIT.
-=======
   (ver cuaderno de trabajo de base de datos)
-6- 13/04/2014 Hemos creado un documento en /Documentacion/interna/GIT proyecto.doc explicando 
-    como vamos a usar las ramas en GIT y con algunos comandos básicos de GIT.
 7- 22/04/2014 Hemos creado un primer bundle en el proyecto. 
->>>>>>> Dayana
-8- 27/04/2014 Hemos añadido en /Documentacion/externa el er, el script de creacion de la BD y el universo de discurso.
+8- 08/05/2014 Hemos empezado a crear las clases para usar SQL con Doctrine como ORM.
