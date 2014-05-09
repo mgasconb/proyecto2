@@ -11,10 +11,13 @@ use Doctrine\ORM\Mapping as ORM;
 
 class Groups{
     
+    /** @Column(type="integer") */
     private  $grpID;
     
+    /** @Column(length=100) */
     private $grpnombre;
     
+    /** @Column(length=255) */
     private $grpdescripcion;
     
 }
