@@ -11,13 +11,16 @@ use Doctrine\ORM\Mapping as ORM;
  */
 
 class Tasks{
-    
+    /** @Column(type="integer") */
     private  $tarID;
     
+    /** @Column(length=45) */
     private $tarnombre;
     
+    /** @Column(length=45) */
     private $targrupoID;
     
+    /** @Column(length=45) */
     private $tarotros;
    
 }
