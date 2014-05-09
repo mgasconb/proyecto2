@@ -11,10 +11,13 @@ use Doctrine\ORM\Mapping as ORM;
 
 class Roles_permissions{
     
+    /** @Column(type="integer") */
     private  $rpID;
     
+    /** @Column(type="integer") */
     private $rprolID;
     
+    /** @Column(type="integer") */
     private $rpperID;
     
 }
