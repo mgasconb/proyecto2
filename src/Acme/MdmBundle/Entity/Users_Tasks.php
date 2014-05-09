@@ -10,11 +10,14 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Entity
  */
 
-class Tasks{
+class Tasks{    
+    /** @Column(type="integer") */
     private  $utID;
     
+    /** @Column(type="integer") */
     private  $utusuarioID;
     
+    /** @Column(type="integer") */
     private $uttareaID;
     
 }
