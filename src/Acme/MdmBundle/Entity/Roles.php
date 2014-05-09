@@ -12,10 +12,13 @@ use Doctrine\ORM\Mapping as ORM;
 
 class Tasks{
     
+    /** @Column(type="integer") */
     private  $rolID;
     
+    /** @Column(length=100) */
     private $rolnombre;
     
+    /** @Column(length=100) */
     private $roldescripcion;
    
 }
