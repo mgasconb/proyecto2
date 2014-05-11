@@ -12,7 +12,9 @@ use Doctrine\ORM\Mapping as ORM;
 
 class User{
     
-    /** @Column(type="integer") */
+    /** @Id @ManyToOne(targetEntity="users_tasks", inversedBy="utusuarioID") 
+     * @Column(type="integer")
+     */
     private  $usrID;
     
     /** @Column(length=45) */

@@ -11,7 +11,9 @@ use Doctrine\ORM\Mapping as ORM;
  */
 
 class Tasks{
-    /** @Column(type="integer") */
+    /** @Id @ManyToOne(targetEntity="users_tasks", inversedBy="uttareaID") 
+     * @Column(type="integer")
+     */
     private  $tarID;
     
     /** @Column(length=45) */

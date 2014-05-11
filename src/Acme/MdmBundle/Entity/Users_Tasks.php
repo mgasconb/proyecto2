@@ -11,13 +11,20 @@ use Doctrine\ORM\Mapping as ORM;
  */
 
 class Tasks{    
+    
     /** @Column(type="integer") */
     private  $utID;
     
-    /** @Column(type="integer") */
+    /**
+     * @OneToMany(targetEntity="user", mappedBy="usrID", cascade={"ALL"})
+     * @Column(type="integer") 
+     */    
     private  $utusuarioID;
     
-    /** @Column(type="integer") */
+    /**
+     * @OneToMany(targetEntity="tasks", mappedBy="tarID", cascade={"ALL"})
+     * @Column(type="integer")
+     */
     private $uttareaID;
     
 }
