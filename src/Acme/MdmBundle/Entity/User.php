@@ -12,9 +12,14 @@ use Doctrine\ORM\Mapping as ORM;
 
 class User{
     
-    /** @Id @ManyToOne(targetEntity="users_tasks", inversedBy="utusuarioID") 
+    /**
+     * @ManyToMany(targetEntity="roles")
+     * @JoinTable(name="users_roles",
+     *      joinColumns={@JoinColumn(name="urusrID", referencedColumnName="usrID")},
+     *      inverseJoinColumns={@JoinColumn(name="urrolID", referencedColumnName="rolID")}
+     *      )
      * @Column(type="integer")
-     */
+     **/
     private  $usrID;
     
     /** @Column(length=45) */

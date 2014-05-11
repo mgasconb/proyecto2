@@ -18,8 +18,14 @@ class Roles{
      *      joinColumns={@JoinColumn(name="rprolID", referencedColumnName="rolID")},
      *      inverseJoinColumns={@JoinColumn(name="rpperID", referencedColumnName="perID")}
      *      )
+     * 
+     * @ManyToMany(targetEntity="user")
+     * @JoinTable(name="users_roles",
+     *      joinColumns={@JoinColumn(name="urrolID", referencedColumnName="rolID")},
+     *      inverseJoinColumns={@JoinColumn(name="urusrID", referencedColumnName="usrID")}
+     *      )
      * @Column(type="integer")
-     **/    
+     **/
     private  $rolID;
     
     /** @Column(length=100) */
