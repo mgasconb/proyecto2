@@ -11,7 +11,10 @@ use Doctrine\ORM\Mapping as ORM;
 
 class Groups{
     
-    /** @Column(type="integer") */
+    /**
+     * @OneToMany(targetEntity="user", mappedBy="usrgrupoID")
+     * @Column(type="integer")
+     **/
     private  $grpID;
     
     /** @Column(length=100) */

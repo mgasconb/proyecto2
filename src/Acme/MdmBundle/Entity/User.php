@@ -34,7 +34,9 @@ class User{
     /** @Column(length=45) */
     private $usrapellidos;
     
-    /** @Column(type="integer") */
+    /** 
+     * @ManyToOne(targetEntity="groups", inversedBy="grpID")
+     * @Column(type="integer") */
     private $usrgrupoID;
     
     /** @Column(length=45) */
