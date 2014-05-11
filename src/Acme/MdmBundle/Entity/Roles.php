@@ -10,7 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Entity
  */
 
-class Tasks{
+class Roles{
     
     /**
      * @ManyToMany(targetEntity="permissions")
