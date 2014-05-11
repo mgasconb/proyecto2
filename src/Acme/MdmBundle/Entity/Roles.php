@@ -12,7 +12,14 @@ use Doctrine\ORM\Mapping as ORM;
 
 class Tasks{
     
-    /** @Column(type="integer") */
+    /**
+     * @ManyToMany(targetEntity="permissions")
+     * @JoinTable(name="roles_permissions",
+     *      joinColumns={@JoinColumn(name="rprolID", referencedColumnName="rolID")},
+     *      inverseJoinColumns={@JoinColumn(name="rpperID", referencedColumnName="perID")}
+     *      )
+     * @Column(type="integer")
+     **/    
     private  $rolID;
     
     /** @Column(length=100) */

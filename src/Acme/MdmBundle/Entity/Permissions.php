@@ -10,9 +10,16 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Entity
  */
 
-class Permissions{
+class Permissions{  
     
-    /** @Column(type="integer") */
+    /**
+     * @ManyToMany(targetEntity="roles")
+     * @JoinTable(name="roles_permissions",
+     *      joinColumns={@JoinColumn(name="rpperID", referencedColumnName="perID")},
+     *      inverseJoinColumns={@JoinColumn(name="rprolID", referencedColumnName="rolID")}
+     *      )
+     * @Column(type="integer")
+     **/
     private  $perID;
     
     /** @Column(length=45) */
