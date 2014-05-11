@@ -11,19 +11,32 @@ use Doctrine\ORM\Mapping as ORM;
  */
 
 class Tasks{
-    /** @Id @ManyToOne(targetEntity="users_tasks", inversedBy="uttareaID") 
+    
+    /**
+     * @ManyToMany(targetEntity="roles")
+     * @JoinTable(name="users_roles",
+     *      joinColumns={@JoinColumn(name="uruseID", referencedColumnName="useID")},
+     *      inverseJoinColumns={@JoinColumn(name="urrolID", referencedColumnName="rolID")}
+     *      )
+     * 
+     * @ManyToMany(targetEntity="user")
+     * @JoinTable(name="users_tasks",
+     *      joinColumns={@JoinColumn(name="uttasID", referencedColumnName="tasID")},
+     *      inverseJoinColumns={@JoinColumn(name="utuseID", referencedColumnName="useID")}
+     *      )
+     * 
      * @Column(type="integer")
-     */
-    private  $tarID;
+     **/
+    private  $tasID;
     
     /** @Column(length=45) */
-    private $tarnombre;
+    private $tasnombre;
     
     /** @Column(length=45) */
-    private $targrupoID;
+    private $tasgrupoID;
     
     /** @Column(length=45) */
-    private $tarotros;
+    private $tasotros;
    
 }
 

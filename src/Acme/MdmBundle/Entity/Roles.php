@@ -22,7 +22,7 @@ class Roles{
      * @ManyToMany(targetEntity="user")
      * @JoinTable(name="users_roles",
      *      joinColumns={@JoinColumn(name="urrolID", referencedColumnName="rolID")},
-     *      inverseJoinColumns={@JoinColumn(name="urusrID", referencedColumnName="usrID")}
+     *      inverseJoinColumns={@JoinColumn(name="uruseID", referencedColumnName="useID")}
      *      )
      * @Column(type="integer")
      **/

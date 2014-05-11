@@ -18,6 +18,6 @@ class Users_roles{
     private $urrolID;
     
     /** @Column(type="integer") */
-    private $urusrID;
+    private $uruseID;
     
 }

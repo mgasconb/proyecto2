@@ -14,18 +14,10 @@ class Tasks{
     
     /** @Column(type="integer") */
     private  $utID;
+     
+    private  $utuseID;
     
-    /**
-     * @OneToMany(targetEntity="user", mappedBy="usrID", cascade={"ALL"})
-     * @Column(type="integer") 
-     */    
-    private  $utusuarioID;
-    
-    /**
-     * @OneToMany(targetEntity="tasks", mappedBy="tarID", cascade={"ALL"})
-     * @Column(type="integer")
-     */
-    private $uttareaID;
+    private $uttasID;
     
 }
 

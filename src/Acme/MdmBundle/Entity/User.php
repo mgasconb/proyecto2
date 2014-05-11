@@ -15,32 +15,39 @@ class User{
     /**
      * @ManyToMany(targetEntity="roles")
      * @JoinTable(name="users_roles",
-     *      joinColumns={@JoinColumn(name="urusrID", referencedColumnName="usrID")},
+     *      joinColumns={@JoinColumn(name="uruseID", referencedColumnName="useID")},
      *      inverseJoinColumns={@JoinColumn(name="urrolID", referencedColumnName="rolID")}
      *      )
+     * 
+     * @ManyToMany(targetEntity="tasks")
+     * @JoinTable(name="users_tasks",
+     *      joinColumns={@JoinColumn(name="utuseID", referencedColumnName="useID")},
+     *      inverseJoinColumns={@JoinColumn(name="uttasID", referencedColumnName="tasID")}
+     *      )
+     * 
      * @Column(type="integer")
      **/
-    private  $usrID;
+    private $useID;
     
     /** @Column(length=45) */
-    private $usrlogin;
+    private $uselogin;
     
     /** @Column(length=45) */
-    private $usrpassword;
+    private $usepassword;
     
     /** @Column(length=45) */
-    private $usrnombre;
+    private $usenombre;
     
     /** @Column(length=45) */
-    private $usrapellidos;
+    private $useapellidos;
     
     /** 
-     * @ManyToOne(targetEntity="groups", inversedBy="grpID")
+     * @ManyToOne(targetEntity="groups", inversedBy="groID")
      * @Column(type="integer") */
-    private $usrgrupoID;
+    private $usegrupoID;
     
     /** @Column(length=45) */
-    private $usrotros;
+    private $useotros;
     
     
     
