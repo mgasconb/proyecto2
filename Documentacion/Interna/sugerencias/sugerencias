@@ -1,8 +1,0 @@
-En este fichero iremos poniendo las sugerencias/ideas que se nos vayan ocurriendo:
-
-1- 13/04/2014 Miguel: Podríamos hacer un web service para obtener los datos de una base 
-    de datos que no este alojada en el mismo sitio que la aplicacion. Aun no se 
-    muy bien como se haria pero a lo mejor en las prácticas puedo enterarme.
-    Creo que implicaría tener un servidor propio con la base de datos, yo tengo
-    algun PC en casa para hacer esto y se mas o menos como solucionar los problemas 
-    de IP dinámica y tal. Podríamos mirarlo si nos sobrase tiempo.

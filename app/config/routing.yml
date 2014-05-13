@@ -1,4 +1,0 @@
-acme_mdm:
-    resource: "@AcmeMdmBundle/Resources/config/routing.yml"
-    prefix:   /
-
