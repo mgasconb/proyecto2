@@ -12,7 +12,7 @@ use Doctrine\ORM\Mapping as ORM;
 class Roles_permissions{
     
     /** @Column(type="integer") */
-    private  $rpID;
+    private  $id;
     
     /** @Column(type="integer") */
     private $rprolID;

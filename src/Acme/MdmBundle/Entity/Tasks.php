@@ -27,16 +27,16 @@ class Tasks{
      * 
      * @Column(type="integer")
      **/
-    private  $tasID;
+    private  $id;
     
     /** @Column(length=45) */
-    private $tasnombre;
+    private $nombre;
     
     /** @Column(length=45) */
-    private $tasgrupoID;
+    private $grupo;
     
     /** @Column(length=45) */
-    private $tasotros;
+    private $otros;
    
 }
 

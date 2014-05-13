@@ -27,27 +27,27 @@ class User{
      * 
      * @Column(type="integer")
      **/
-    private $useID;
+    private $id;
     
     /** @Column(length=45) */
-    private $uselogin;
+    private $login;
     
     /** @Column(length=45) */
-    private $usepassword;
+    private $password;
     
     /** @Column(length=45) */
-    private $usenombre;
+    private $nombre;
     
     /** @Column(length=45) */
-    private $useapellidos;
+    private $apellidos;
     
     /** 
      * @ManyToOne(targetEntity="groups", inversedBy="groID")
      * @Column(type="integer") */
-    private $usegrupoID;
+    private $grupos;
     
     /** @Column(length=45) */
-    private $useotros;
+    private $otros;
     
     
     
