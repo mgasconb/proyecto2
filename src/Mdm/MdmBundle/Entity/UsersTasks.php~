@@ -1,0 +1,45 @@
+<?php
+
+namespace Mdm\MdmBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * UsersTasks
+ *
+ * @ORM\Table(name="users_tasks", uniqueConstraints={@ORM\UniqueConstraint(name="id_UNIQUE", columns={"id"})}, indexes={@ORM\Index(name="user_id_idx", columns={"user_id"}), @ORM\Index(name="task_id_idx", columns={"task_id"})})
+ * @ORM\Entity
+ */
+class UsersTasks
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var \Mdm\MdmBundle\Entity\Tasks
+     *
+     * @ORM\ManyToOne(targetEntity="Mdm\MdmBundle\Entity\Tasks")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="task_id", referencedColumnName="id")
+     * })
+     */
+    private $task;
+
+    /**
+     * @var \Mdm\MdmBundle\Entity\Users
+     *
+     * @ORM\ManyToOne(targetEntity="Mdm\MdmBundle\Entity\Users")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="user_id", referencedColumnName="id")
+     * })
+     */
+    private $user;
+
+
+}

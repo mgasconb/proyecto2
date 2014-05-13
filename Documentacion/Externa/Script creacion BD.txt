@@ -1,0 +1,106 @@
+SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
+SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
+SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
+
+CREATE SCHEMA IF NOT EXISTS `mydb` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci ;
+CREATE SCHEMA IF NOT EXISTS `proyecto` DEFAULT CHARACTER SET latin1 ;
+USE `mydb` ;
+-- ------------------------------------------------------- Table `mydb`.`Tareas`-- -----------------------------------------------------
+DROP TABLE IF EXISTS `mydb`.`Tareas` ;
+CREATE  TABLE IF NOT EXISTS `mydb`.`Tareas` ( 
+    `tarID` INT NOT NULL AUTO_INCREMENT ,  
+    `tarnombre` VARCHAR(45) NOT NULL ,  
+    `targrupoID` VARCHAR(45) NOT NULL ,  
+    `tarotros` VARCHAR(45) NULL ,  
+    PRIMARY KEY (`tarID`) ,  
+    UNIQUE INDEX `usrID_UNIQUE` (`tarID` ASC) ,  
+    UNIQUE INDEX `targrupoID_UNIQUE` (`targrupoID` ASC) 
+)ENGINE = InnoDB;
+
+-- ------------------------------------------------------- Table `mydb`.`Grupos`-- -----------------------------------------------------
+DROP TABLE IF EXISTS `mydb`.`Grupos` ;
+CREATE  TABLE IF NOT EXISTS `mydb`.`Grupos` (
+    `grpID` INT NOT NULL AUTO_INCREMENT ,  
+    `grpnombre` VARCHAR(100) NOT NULL ,  
+    `grpdescripcion` VARCHAR(255) NOT NULL ,  
+    PRIMARY KEY (`grpID`) ,  
+    UNIQUE INDEX `grpID_UNIQUE` (`grpID` ASC) 
+)ENGINE = InnoDB;
+
+-- ------------------------------------------------------- Table `mydb`.`Usuarios`-- -----------------------------------------------------
+DROP TABLE IF EXISTS `mydb`.`Usuarios` ;
+CREATE  TABLE IF NOT EXISTS `mydb`.`Usuarios` (  
+    `usrID` INT NOT NULL AUTO_INCREMENT ,  
+    `usrlogin` VARCHAR(45) NOT NULL ,  
+    `usrpassword` VARCHAR(45) NOT NULL ,  
+    `usrnombre` VARCHAR(45) NOT NULL ,  
+    `usrapellidos` VARCHAR(45) NOT NULL ,  
+    `usrgrupoID` INT NOT NULL ,  
+    `usrotros` VARCHAR(45) NULL ,  
+    PRIMARY KEY (`usrID`) ,  
+    UNIQUE INDEX `usrID_UNIQUE` (`usrID` ASC) ,  
+    UNIQUE INDEX `usrlogin_UNIQUE` (`usrlogin` ASC) ,  
+    INDEX `usrgrupoID_idx` (`usrgrupoID` ASC) ,  
+    CONSTRAINT `usrgrupoID`    FOREIGN KEY (`usrgrupoID` )    REFERENCES `mydb`.`Grupos` (`grpID` )    ON DELETE NO ACTION    ON UPDATE NO ACTION
+)ENGINE = InnoDB;
+
+-- ------------------------------------------------------- Table `mydb`.`Usuarios_tareas`-- -----------------------------------------------------
+DROP TABLE IF EXISTS `mydb`.`Usuarios_tareas` ;
+CREATE  TABLE IF NOT EXISTS `mydb`.`Usuarios_tareas` (
+    `utID` INT NOT NULL AUTO_INCREMENT ,  
+    `utusuarioID` INT NOT NULL , 
+    `uttareaID` INT NOT NULL ,  
+    PRIMARY KEY (`utID`) ,  
+    UNIQUE INDEX `u_tID_UNIQUE` (`utID` ASC) , 
+    INDEX `utusuarioID_idx` (`utusuarioID` ASC) ,  
+    INDEX `uttareaID_idx` (`uttareaID` ASC) ,  
+    CONSTRAINT `utusuarioID`    FOREIGN KEY (`utusuarioID` )    REFERENCES `mydb`.`Usuarios` (`usrID` )    ON DELETE NO ACTION    ON UPDATE NO ACTION,  
+    CONSTRAINT `uttareaID`    FOREIGN KEY (`uttareaID` )    REFERENCES `mydb`.`Tareas` (`tarID` )    ON DELETE NO ACTION    ON UPDATE NO ACTION
+)ENGINE = InnoDB;
+
+-- ------------------------------------------------------- Table `mydb`.`Roles`-- -----------------------------------------------------
+DROP TABLE IF EXISTS `mydb`.`Roles` ;
+CREATE  TABLE IF NOT EXISTS `mydb`.`Roles` (  
+    `rolID` INT NOT NULL AUTO_INCREMENT ,  
+    `rolnombre` VARCHAR(100) NOT NULL ,  
+    `roldescripcion` VARCHAR(100) NOT NULL ,  
+    PRIMARY KEY (`rolID`) ,  
+    UNIQUE INDEX `rolID_UNIQUE` (`rolID` ASC) 
+)ENGINE = InnoDB;
+-- ------------------------------------------------------- Table `mydb`.`Permisos`-- -----------------------------------------------------
+DROP TABLE IF EXISTS `mydb`.`Permisos` ;
+CREATE  TABLE IF NOT EXISTS `mydb`.`Permisos` (
+    `perID` INT NOT NULL AUTO_INCREMENT ,  
+    `pernombre` VARCHAR(45) NOT NULL ,  
+    `perdescripcion` VARCHAR(45) NOT NULL ,  
+    PRIMARY KEY (`perID`) ,  
+    UNIQUE INDEX `perID_UNIQUE` (`perID` ASC) 
+)ENGINE = InnoDB;
+
+-- ------------------------------------------------------- Table `mydb`.`Roles_permisos`-- -----------------------------------------------------
+DROP TABLE IF EXISTS `mydb`.`Roles_permisos` ;
+CREATE  TABLE IF NOT EXISTS `mydb`.`Roles_permisos` (  
+    `rpID` INT NOT NULL AUTO_INCREMENT ,  
+    `rprolID` INT NOT NULL ,  
+    `rpperID` INT NOT NULL ,  
+    PRIMARY KEY (`rpID`) ,  
+    UNIQUE INDEX `rpID_UNIQUE` (`rpID` ASC) ,  
+    INDEX `rpperID_idx` (`rpperID` ASC) ,  
+    INDEX `rprolID_idx` (`rprolID` ASC) ,  
+    CONSTRAINT `rpperID`    FOREIGN KEY (`rpperID` )    REFERENCES `mydb`.`Permisos` (`perID` )    ON DELETE NO ACTION    ON UPDATE NO ACTION,  
+    CONSTRAINT `rprolID`    FOREIGN KEY (`rprolID` )    REFERENCES `mydb`.`Roles` (`rolID` )    ON DELETE NO ACTION    ON UPDATE NO ACTION
+)ENGINE = InnoDB;
+
+-- ------------------------------------------------------- Table `mydb`.`Usuarios_roles`-- -----------------------------------------------------
+DROP TABLE IF EXISTS `mydb`.`Usuarios_roles` ;
+CREATE  TABLE IF NOT EXISTS `mydb`.`Usuarios_roles` (
+    `urID` INT NOT NULL AUTO_INCREMENT ,  
+    `urrolID` INT NOT NULL ,  
+    `urusrID` INT NOT NULL ,  
+    PRIMARY KEY (`urID`) ,  
+    UNIQUE INDEX `urID_UNIQUE` (`urID` ASC) ,  
+    INDEX `urusrID_idx` (`urusrID` ASC) ,  
+    INDEX `urrolID_idx` (`urrolID` ASC) ,  
+    CONSTRAINT `urusrID`    FOREIGN KEY (`urusrID` )    REFERENCES `mydb`.`Usuarios` (`usrID` )    ON DELETE NO ACTION    ON UPDATE NO ACTION,  
+    CONSTRAINT `urrolID`    FOREIGN KEY (`urrolID` )    REFERENCES `mydb`.`Roles` (`rolID` )    ON DELETE NO ACTION    ON UPDATE NO ACTION
+)ENGINE = InnoDB;
