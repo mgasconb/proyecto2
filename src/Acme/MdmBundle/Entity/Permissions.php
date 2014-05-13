@@ -20,12 +20,12 @@ class Permissions{
      *      )
      * @Column(type="integer")
      **/
-    private  $perID;
+    private  $id;
     
     /** @Column(length=45) */
-    private $pernombre;
+    private $nombre;
     
     /** @Column(length=45) */
-    private $perdescripcion;
+    private $descripcion;
     
 }
