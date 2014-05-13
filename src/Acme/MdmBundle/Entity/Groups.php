@@ -15,12 +15,12 @@ class Groups{
      * @OneToMany(targetEntity="user", mappedBy="usegrupoID")
      * @Column(type="integer")
      **/
-    private  $groID;
+    private  $id;
     
     /** @Column(length=100) */
-    private $gronombre;
+    private $nombre;
     
     /** @Column(length=255) */
-    private $grodescripcion;
+    private $descripcion;
     
 }
