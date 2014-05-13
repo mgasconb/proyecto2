@@ -12,15 +12,22 @@ use Doctrine\ORM\Mapping as ORM;
 class Groups{
     
     /**
-     * @OneToMany(targetEntity="user", mappedBy="usegrupoID")
-     * @Column(type="integer")
+     * @var integer
+     * @OneToMany(targetEntity="user", mappedBy="grupo")
+     * @ORM\Id Column(type="integer" ) 
+     * @ORM\GeneratedValue
+     * 
      **/
     private  $id;
     
-    /** @Column(length=100) */
+    /** 
+     * @var string
+     * @ORM\Column(type="string" length=100 nullable=false) */
     private $nombre;
     
-    /** @Column(length=255) */
+    /**
+     * @var string
+     *  @Column(type="string" length=255 nullable=false) */
     private $descripcion;
     
 }
