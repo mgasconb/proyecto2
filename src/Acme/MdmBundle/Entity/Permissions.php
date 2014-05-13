@@ -18,14 +18,19 @@ class Permissions{
      *      joinColumns={@JoinColumn(name="rpperID", referencedColumnName="perID")},
      *      inverseJoinColumns={@JoinColumn(name="rprolID", referencedColumnName="rolID")}
      *      )
-     * @Column(type="integer")
+     * @var integer
+     * @ORM\Column(type="integer" @GeneratedValue )
      **/
     private  $id;
     
-    /** @Column(length=45) */
+    /** 
+     * @var string
+     * @ORM\Column(type="string" length=45) */
     private $nombre;
     
-    /** @Column(length=45) */
+    /** 
+     * @var string
+     * @ORM\Column(type="string" length=45) */
     private $descripcion;
     
 }
