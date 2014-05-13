@@ -26,13 +26,13 @@ class Roles{
      *      )
      * @Column(type="integer")
      **/
-    private  $rolID;
+    private  $id;
     
     /** @Column(length=100) */
-    private $rolnombre;
+    private $nombre;
     
     /** @Column(length=100) */
-    private $roldescripcion;
+    private $descripcion;
    
 }
 
