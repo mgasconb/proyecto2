@@ -1,0 +1,11 @@
+mdm_homepage:
+    pattern:  /hello/{name}
+    defaults: { _controller: mdmBundle:Default:index }
+
+mdm_form_task:
+    pattern:  /form/
+    defaults: { _controller: mdmBundle:Default:form }
+    
+mdm_form_users:
+    pattern:  /form_users/
+    defaults: { _controller: mdmBundle:Default:formUsers }
