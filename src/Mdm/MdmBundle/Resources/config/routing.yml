@@ -1,3 +1,0 @@
-mdm_mdm_homepage:
-    pattern:  /hello/{name}
-    defaults: { _controller: MdmMdmBundle:Default:index }
