@@ -16,6 +16,7 @@ class __TwigTemplate_cbb90cdb0e95cc7de455834f14ced673928db8c4132974b3d2aa896dcd1
             'form_surname' => array($this, 'block_form_surname'),
             'form_other' => array($this, 'block_form_other'),
             'form_email' => array($this, 'block_form_email'),
+            'form_group' => array($this, 'block_form_group'),
         );
     }
 
@@ -370,6 +371,9 @@ class __TwigTemplate_cbb90cdb0e95cc7de455834f14ced673928db8c4132974b3d2aa896dcd1
         echo "                                ";
         $this->displayBlock('form_email', $context, $blocks);
         // line 361
+        echo "                                ";
+        $this->displayBlock('form_group', $context, $blocks);
+        // line 367
         echo "                            ";
         echo         $this->env->getExtension('form')->renderer->renderBlock((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), 'form_end');
         echo "
@@ -475,6 +479,21 @@ class __TwigTemplate_cbb90cdb0e95cc7de455834f14ced673928db8c4132974b3d2aa896dcd1
                                 ";
     }
 
+    // line 361
+    public function block_form_group($context, array $blocks = array())
+    {
+        // line 362
+        echo "                                    ";
+        // line 363
+        echo "                                    <li>
+                                        ";
+        // line 364
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "group"), 'row');
+        echo "
+                                    </li>
+                                ";
+    }
+
     public function getTemplateName()
     {
         return "mdmBundle:Default:formularioUsuarios.html.twig";
@@ -487,6 +506,6 @@ class __TwigTemplate_cbb90cdb0e95cc7de455834f14ced673928db8c4132974b3d2aa896dcd1
 
     public function getDebugInfo()
     {
-        return array (  472 => 358,  469 => 357,  467 => 356,  464 => 355,  457 => 352,  454 => 351,  452 => 350,  449 => 349,  442 => 346,  439 => 345,  437 => 344,  434 => 343,  427 => 340,  424 => 339,  422 => 338,  419 => 337,  412 => 334,  409 => 333,  407 => 332,  404 => 331,  397 => 328,  394 => 327,  392 => 326,  389 => 325,  373 => 361,  370 => 355,  367 => 349,  364 => 343,  361 => 337,  358 => 331,  355 => 325,  351 => 323,  347 => 322,  25 => 2,);
+        return array (  491 => 364,  488 => 363,  486 => 362,  483 => 361,  476 => 358,  473 => 357,  471 => 356,  468 => 355,  461 => 352,  458 => 351,  456 => 350,  453 => 349,  446 => 346,  443 => 345,  441 => 344,  438 => 343,  431 => 340,  428 => 339,  426 => 338,  423 => 337,  416 => 334,  413 => 333,  411 => 332,  408 => 331,  401 => 328,  398 => 327,  396 => 326,  393 => 325,  377 => 367,  374 => 361,  371 => 355,  368 => 349,  365 => 343,  362 => 337,  359 => 331,  356 => 325,  352 => 323,  348 => 322,  26 => 2,);
     }
 }
