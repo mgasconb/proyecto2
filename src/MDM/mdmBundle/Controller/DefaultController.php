@@ -39,11 +39,13 @@ class DefaultController extends Controller {
                 ->add('name', 'text')
                 ->add('surname', 'text')
                 ->add('other', 'text')
-                ->add('email', 'text')
-                ->add('group', 'text', array('mapped' => false))
-                ->add('id', 'text', array('mapped' => false))
+                ->add('email', 'text')               
                 ->add('save', 'submit')
                 ->getForm();
+        /* ->add('group', 'text', array('mapped' => false))
+                ->add('id', 'text', array('mapped' => false))*/
+        
+        
         
         /*
           return $this->render('mdmBundle:Default:formularioUsuarios.html.twig', array(
