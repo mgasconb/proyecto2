@@ -9,3 +9,7 @@ mdm_form_task:
 mdm_form_users:
     pattern:  /form_users/
     defaults: { _controller: mdmBundle:Default:formUsers }
+    
+mdm_form_login:
+    pattern:  /form_login/
+    defaults: { _controller: mdmBundle:Default:formlogin }

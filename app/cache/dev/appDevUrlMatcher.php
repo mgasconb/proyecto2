@@ -150,13 +150,25 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
                 return array (  '_controller' => 'MDM\\mdmBundle\\Controller\\DefaultController::formAction',  '_route' => 'mdm_form_task',);
             }
 
-            // mdm_form_users
-            if (rtrim($pathinfo, '/') === '/form_users') {
-                if (substr($pathinfo, -1) !== '/') {
-                    return $this->redirect($pathinfo.'/', 'mdm_form_users');
+            if (0 === strpos($pathinfo, '/form_')) {
+                // mdm_form_users
+                if (rtrim($pathinfo, '/') === '/form_users') {
+                    if (substr($pathinfo, -1) !== '/') {
+                        return $this->redirect($pathinfo.'/', 'mdm_form_users');
+                    }
+
+                    return array (  '_controller' => 'MDM\\mdmBundle\\Controller\\DefaultController::formUsersAction',  '_route' => 'mdm_form_users',);
                 }
 
-                return array (  '_controller' => 'MDM\\mdmBundle\\Controller\\DefaultController::formUsersAction',  '_route' => 'mdm_form_users',);
+                // mdm_form_login
+                if (rtrim($pathinfo, '/') === '/form_login') {
+                    if (substr($pathinfo, -1) !== '/') {
+                        return $this->redirect($pathinfo.'/', 'mdm_form_login');
+                    }
+
+                    return array (  '_controller' => 'MDM\\mdmBundle\\Controller\\DefaultController::formloginAction',  '_route' => 'mdm_form_login',);
+                }
+
             }
 
         }

@@ -99,7 +99,8 @@ class DefaultController extends Controller {
         // una nueva pagina
         // return $this->redirect($this->generateUrl('homepage'));
         // un response con un bien venido 
-        return new Response('bienvenido');
+        
+        return $this->render('mdmBundle:Default:formularioUsuarios.html.twig', array('form' => $form->createView()));
     }
 
     function formloginAction(Request $request) {
@@ -131,8 +132,7 @@ class DefaultController extends Controller {
             
          }
          return $this->render('mdmBundle:Default:formularioGrupo.html.twig', array(
-                    'form' => $form->createView(),
-        ));
+                    'form' => $form->createView()));
     }
 
 }
