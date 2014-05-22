@@ -104,7 +104,7 @@ class DefaultController extends Controller {
     }
 
     function formloginAction(Request $request) {
-
+        $user= new Users();
         $form = $this->createFormBuilder()
                 ->add('login', 'text')
                 ->add('password', 'text')
@@ -115,13 +115,13 @@ class DefaultController extends Controller {
 
         $form->handleRequest($request);
        
-         if ($form->isValid()) {
+       /*  if ($form->isValid()) {
             $data = $form->getData();
             
             $repository = $this->getDoctrine()
                  ->getRepository('mdmBundle:Users');
             $login->$repository->findOneBylogin($data['login']);
-            $password->$repository->findOneBypassword($data['password']);
+            $password>$repository->findOneBypassword($data['password']);
             
             if(!$login && !$password ){
                 return new Response('No existe'); 
@@ -130,7 +130,7 @@ class DefaultController extends Controller {
             
             }
             
-         }
+         }*/
          return $this->render('mdmBundle:Default:formularioGrupo.html.twig', array(
                     'form' => $form->createView()));
     }
