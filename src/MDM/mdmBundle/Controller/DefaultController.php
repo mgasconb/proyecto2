@@ -38,8 +38,6 @@ class DefaultController extends Controller {
         $group = $em->getRepository('mdmBundle:Groups')
                 ->find($id);
 
-        /*  return new Response('Created product id ' .$group->getName());
-         */
 
         $user = new Users();
         $form = $this->createFormBuilder()
@@ -73,37 +71,22 @@ class DefaultController extends Controller {
             $em = $this->getDoctrine()->getManager();
             $em->persist($user);
             $em->flush();
+             /**  Aqui una vez registrado le 
+             * redirigimos a otra pagina que sera bienvenido 
+              * ya puede loguearse y disfrutar de esta aplicación algo así.
+              * Por el momento le dirigo a esta pagina que ya estaba hecha que es una prueba .
+              */
+            return $this->redirect($this->generateUrl('mdm_form_task')); 
         }
-
-        /*
-          return $this->render('mdmBundle:Default:formularioUsuarios.html.twig', array(
-          'form' => $form->createView(),
-          ));
-         */
-
-
-
-        /* Miramos si el formulario esta validado y recuperamos los datos. */
-        /* $form->handleRequest($request); */
-        /*    $form->bind( $request );
-
-          if ($form->isValid()) {
-          // perform some action, such as saving the task to the database
-          $nextAction = $form->get('save')->isClicked() ? 'mdm_homepage' : 'mdm_homepage';
-          return $this->redirect($this->generateUrl('mdm_form_task'));
-          } */
-        /** Redirigir a otra pagina */
-        /*
-          return $this->render('mdmBundle:Default:formularioUsuarios.html.twig', array('form' => $form->createView()));
-         */
-        // una nueva pagina
-        // return $this->redirect($this->generateUrl('homepage'));
-        // un response con un bien venido 
         
         return $this->render('mdmBundle:Default:formularioUsuarios.html.twig', array('form' => $form->createView()));
     }
 
     function formloginAction(Request $request) {
+        
+        /** Esto puedes  borrar todo si es necesario este sería el controlador de loguearse (sign in/up)
+        * 
+         *  */
         $user= new Users();
         $form = $this->createFormBuilder()
                 ->add('login', 'text')

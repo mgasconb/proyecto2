@@ -661,3 +661,12 @@ e45a30,::1,GET,http://localhost/proyecto/web/app_dev.php/img/logo.jpg,1400760962
 089ae3,::1,GET,http://localhost/proyecto/web/app_dev.php/img/logo.jpg,1400760963,
 e140f3,::1,GET,http://localhost/proyecto/web/app_dev.php/form_login/,1400760971,41b976
 41b976,::1,POST,http://localhost/proyecto/web/app_dev.php/form_login/,1400760971,
+8b3870,::1,GET,http://localhost/proyecto/web/app_dev.php/form_users/,1400858058,
+0f0f9d,::1,GET,http://localhost/proyecto/web/app_dev.php/form_users/jquery-2.1.0.min.js,1400858060,d82656
+d82656,::1,GET,http://localhost/proyecto/web/app_dev.php/form_users/jquery-2.1.0.min.js,1400858060,
+09c890,::1,GET,http://localhost/proyecto/web/app_dev.php/form_users/img/favicon.ico,1400858060,7180a7
+7180a7,::1,GET,http://localhost/proyecto/web/app_dev.php/form_users/img/favicon.ico,1400858060,
+4663cd,::1,GET,http://localhost/proyecto/web/app_dev.php/form_users/img/favicon.ico,1400858061,81eb9b
+81eb9b,::1,GET,http://localhost/proyecto/web/app_dev.php/form_users/img/favicon.ico,1400858061,
+75bb35,::1,POST,http://localhost/proyecto/web/app_dev.php/form_users/,1400858105,
+02c13b,::1,GET,http://localhost/proyecto/web/app_dev.php/form/,1400858106,
