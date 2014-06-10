@@ -62,7 +62,7 @@ class RolesPermissions
     public function setRol(\MDM\mdmBundle\Entity\Roles $rol = null)
     {
         $this->rol = $rol;
-
+    
         return $this;
     }
 
@@ -85,7 +85,7 @@ class RolesPermissions
     public function setPermission(\MDM\mdmBundle\Entity\Permissions $permission = null)
     {
         $this->permission = $permission;
-
+    
         return $this;
     }
 

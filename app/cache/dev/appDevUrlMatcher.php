@@ -150,27 +150,60 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
                 return array (  '_controller' => 'MDM\\mdmBundle\\Controller\\DefaultController::formAction',  '_route' => 'mdm_form_task',);
             }
 
-            if (0 === strpos($pathinfo, '/form_')) {
-                // mdm_form_users
-                if (rtrim($pathinfo, '/') === '/form_users') {
-                    if (substr($pathinfo, -1) !== '/') {
-                        return $this->redirect($pathinfo.'/', 'mdm_form_users');
-                    }
-
-                    return array (  '_controller' => 'MDM\\mdmBundle\\Controller\\DefaultController::formUsersAction',  '_route' => 'mdm_form_users',);
+            // mdm_form_users
+            if (rtrim($pathinfo, '/') === '/form_users') {
+                if (substr($pathinfo, -1) !== '/') {
+                    return $this->redirect($pathinfo.'/', 'mdm_form_users');
                 }
 
-                // mdm_form_login
-                if (rtrim($pathinfo, '/') === '/form_login') {
-                    if (substr($pathinfo, -1) !== '/') {
-                        return $this->redirect($pathinfo.'/', 'mdm_form_login');
-                    }
-
-                    return array (  '_controller' => 'MDM\\mdmBundle\\Controller\\DefaultController::formloginAction',  '_route' => 'mdm_form_login',);
-                }
-
+                return array (  '_controller' => 'MDM\\mdmBundle\\Controller\\DefaultController::formUsersAction',  '_route' => 'mdm_form_users',);
             }
 
+        }
+
+        // mdm_form_login
+        if (rtrim($pathinfo, '/') === '/login') {
+            if (substr($pathinfo, -1) !== '/') {
+                return $this->redirect($pathinfo.'/', 'mdm_form_login');
+            }
+
+            return array (  '_controller' => 'MDM\\mdmBundle\\Controller\\DefaultController::formloginAction',  '_route' => 'mdm_form_login',);
+        }
+
+        // mdm_user_signup
+        if (rtrim($pathinfo, '/') === '/signup') {
+            if (substr($pathinfo, -1) !== '/') {
+                return $this->redirect($pathinfo.'/', 'mdm_user_signup');
+            }
+
+            return array (  '_controller' => 'MDM\\mdmBundle\\Controller\\DefaultController::signupAction',  '_route' => 'mdm_user_signup',);
+        }
+
+        // mdm_tasks_user
+        if (rtrim($pathinfo, '/') === '/allTasks') {
+            if (substr($pathinfo, -1) !== '/') {
+                return $this->redirect($pathinfo.'/', 'mdm_tasks_user');
+            }
+
+            return array (  '_controller' => 'MDM\\mdmBundle\\Controller\\DefaultController::AllTaskUserAction',  '_route' => 'mdm_tasks_user',);
+        }
+
+        // mdm_tasks_group
+        if (0 === strpos($pathinfo, '/tasksgroup') && preg_match('#^/tasksgroup/(?P<id>[^/]++)/?$#s', $pathinfo, $matches)) {
+            if (substr($pathinfo, -1) !== '/') {
+                return $this->redirect($pathinfo.'/', 'mdm_tasks_group');
+            }
+
+            return $this->mergeDefaults(array_replace($matches, array('_route' => 'mdm_tasks_group')), array (  '_controller' => 'MDM\\mdmBundle\\Controller\\DefaultController::tasksGroupAction',));
+        }
+
+        // mdm_tasks_delete
+        if (0 === strpos($pathinfo, '/deletetask') && preg_match('#^/deletetask/(?P<id>[^/]++)/?$#s', $pathinfo, $matches)) {
+            if (substr($pathinfo, -1) !== '/') {
+                return $this->redirect($pathinfo.'/', 'mdm_tasks_delete');
+            }
+
+            return $this->mergeDefaults(array_replace($matches, array('_route' => 'mdm_tasks_delete')), array (  '_controller' => 'MDM\\mdmBundle\\Controller\\DefaultController::deleteTaskAction',));
         }
 
         // _welcome

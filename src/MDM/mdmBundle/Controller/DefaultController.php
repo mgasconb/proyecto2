@@ -3,9 +3,10 @@
 namespace MDM\mdmBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use MDM\mdmBundle\Entity\Task;
+use MDM\mdmBundle\Entity\Tasks;
 use MDM\mdmBundle\Entity\Users;
 use MDM\mdmBundle\Entity\Groups;
+use MDM\mdmBundle\Entity\UsersTasks;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -16,24 +17,30 @@ class DefaultController extends Controller {
     }
 
     public function formAction(Request $request) {
-        // create a task and give it some dummy data for this example
-        $task = new Task();
-        $task->setTask('Write a blog post');
-        $task->setDueDate(new \DateTime('tomorrow'));
-
-        $form = $this->createFormBuilder($task)
-                ->add('task', 'text')
-                ->add('dueDate', 'date')
+        $task = new Tasks();
+        $form = $this->createFormBuilder()
+                ->add('name', 'text')
+                ->add('other', 'text')
                 ->add('save', 'submit')
                 ->getForm();
+        $form->handleRequest($request);
+        if ($form->isValid()) {
+            $data = $form->getData();
 
-        return $this->render('mdmBundle:Default:new.html.twig', array(
-                    'form' => $form->createView(),
-        ));
+            $task->setGroupId(5);
+            $task->setName($data['name']);
+            $task->setother($data['other']);
+
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($task);
+            $em->flush();
+            return new response('se ha grabado');
+        }
+        return $this->render('mdmBundle:Tasks:new.html.twig', array('form' => $form->createView()));
     }
 
     public function formUsersAction(Request $request) {
-        $id = 5;
+        $id = 1;
         $em = $this->getDoctrine()->getManager();
         $group = $em->getRepository('mdmBundle:Groups')
                 ->find($id);
@@ -71,51 +78,123 @@ class DefaultController extends Controller {
             $em = $this->getDoctrine()->getManager();
             $em->persist($user);
             $em->flush();
-             /**  Aqui una vez registrado le 
+            /**  Aqui una vez registrado le 
              * redirigimos a otra pagina que sera bienvenido 
-              * ya puede loguearse y disfrutar de esta aplicación algo así.
-              * Por el momento le dirigo a esta pagina que ya estaba hecha que es una prueba .
-              */
-            return $this->redirect($this->generateUrl('mdm_form_task')); 
+             * ya puede loguearse y disfrutar de esta aplicación(algo así).
+             * Por el momento le dirigo a esta pagina que ya estaba hecha, que es una prueba .
+             */
+            return $this->redirect($this->generateUrl('mdm_form_task'));
         }
-        
-        return $this->render('mdmBundle:Default:formularioUsuarios.html.twig', array('form' => $form->createView()));
+
+        return $this->render('mdmBundle:Users:formularioUsuarios.html.twig', array('form' => $form->createView()));
     }
 
-    function formloginAction(Request $request) {
-        
-        /** Esto puedes  borrar todo si es necesario este sería el controlador de loguearse (sign in/up)
-        * 
-         *  */
-        $user= new Users();
+    public function signupAction(Request $request) {
+        $group="";
+        if ($request->getMethod() == 'POST') {
+            
+            $em = $this->getDoctrine()->getEntityManager();
+            
+            $nombre = $request->get('nombre');
+            $apellidos = $request->get('apellidos');
+            $login = $request->get('login');
+            $password = $request->get('password');
+            $email = $request->get('email');
+            $other = $request->get('other');
+            $groupName= $request->get('groupname');
+            $group = $this->getDoctrine()
+                    ->getRepository('mdmBundle:Groups')
+                ->findOneByName(array('name'=>$groupName));
+            
+        var_dump($group);
+            $user = new Users();
+            $user->setName($nombre);
+            $user->setSurname($apellidos);
+            $user->setLogin($login);
+            $user->setPassword($password);
+            $user->setEmail($email);
+            $user->setOther($other);
+            $user->setGroup($group);
+            
+            $em->persist($user);
+            $em->flush();
+        }
+        return $this->render('mdmBundle:Users:signup.html.twig');
+    }
+
+    public function formloginAction(Request $request) {
+
         $form = $this->createFormBuilder()
                 ->add('login', 'text')
                 ->add('password', 'text')
                 ->add('save', 'submit')
                 ->getForm();
-        /* ->add('group', 'text', array('mapped' => false))
-          ->add('id', 'text', array('mapped' => false)) */
 
         $form->handleRequest($request);
-       
-       /*  if ($form->isValid()) {
+
+        if ($form->isValid()) {
+
             $data = $form->getData();
-            
-            $repository = $this->getDoctrine()
-                 ->getRepository('mdmBundle:Users');
-            $login->$repository->findOneBylogin($data['login']);
-            $password>$repository->findOneBypassword($data['password']);
-            
-            if(!$login && !$password ){
-                return new Response('No existe'); 
+            $username = $data['login'];
+            $userpassword = $data['password'];
+            $em = $this->getDoctrine()->getManager();
+            $user = $em->getRepository('mdmBundle:Users')
+                    ->findOneBy(array('login' => $username, 'password' => $userpassword));
+            if ($user) {
+
+                return $this->AllTaskUser($user->getId());
+            } else {
+                return $this->render('mdmBundle:Users:formularioGrupo.html.twig', array('name' => 'LOGIN FAILED'));
             }
-            else{ return new Response('bienvenido');
-            
-            }
-            
-         }*/
-         return $this->render('mdmBundle:Default:formularioGrupo.html.twig', array(
-                    'form' => $form->createView()));
+        }
+        return $this->render('mdmBundle:Users:formularioGrupo.html.twig', array('form' => $form->createView()));
+    }
+
+    /* funcion que muestra todas las tareas de un usuario */
+
+    public function AllTaskUserAction($id) {
+        $em = $this->getDoctrine()->getManager();
+
+        $tasks = $em->getRepository('mdmBundle:UsersTasks')
+                ->findByUser($id);
+        //coger taskid -> task findId($tasks id)
+
+
+
+
+        return $this->render('mdmBundle:Tasks:index.html.twig', array('all' => $tasks));
+    }
+
+    /* funcion que muestra todas las tareas de un grupo */
+
+    public function tasksGroupAction($id) {
+
+        $em = $this->getDoctrine()->getManager();
+        $task = $em->getRepository('mdmBundle:Tasks')
+                ->findByGroupId($id);
+
+
+        return $this->render('mdmBundle:Default:taskgroup.html.twig', array('all' => $task));
+    }
+
+    public function deleteTaskAction($id) {
+        $em = $this->getDoctrine()->getManager();
+        $task = $em->getRepository('mdmBundle:Tasks')
+                ->find($id);
+
+        $em->remove($task);
+        $em->flush();
+
+
+        return $this->render('mdmBundle:Default:deletetask.html.twig', array('message' => 'Seguro de forrar la tarea'));
+    }
+
+    public function modifyTaskAction($id) {
+        $em = $this->getDoctrine()->getManager();
+        $task = $em->getRepository('mdmBundle:Tasks')
+                ->find($id);
+
+        return $this->render('mdmBundle:Default:editTasks.html.twig', array('all' => $task));
     }
 
 }

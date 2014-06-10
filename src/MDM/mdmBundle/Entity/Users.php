@@ -2,7 +2,6 @@
 
 namespace MDM\mdmBundle\Entity;
 
-use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -15,36 +14,36 @@ class Users
 {
     /**
      * @var string
-     * @Assert\NotBlank()
+     *
      * @ORM\Column(name="login", type="string", length=45, nullable=false)
      */
     private $login;
 
     /**
      * @var string
-     * @Assert\NotBlank()
+     *
      * @ORM\Column(name="password", type="string", length=45, nullable=false)
      */
     private $password;
 
     /**
      * @var string
-     * @Assert\NotBlank()
+     *
      * @ORM\Column(name="name", type="string", length=45, nullable=false)
      */
     private $name;
 
     /**
      * @var string
-     * @Assert\NotBlank()
+     *
      * @ORM\Column(name="surname", type="string", length=45, nullable=false)
      */
     private $surname;
 
     /**
      * @var string
-     * @Assert\NotBlank()
-     * @ORM\Column(name="other", type="string", length=45, nullable=true)
+     *
+     * @ORM\Column(name="other", type="string", length=255, nullable=true)
      */
     private $other;
 
@@ -57,7 +56,7 @@ class Users
 
     /**
      * @var integer
-     * @Assert\NotBlank()
+     *
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
@@ -78,14 +77,14 @@ class Users
 
     /**
      * Set login
-     * 
+     *
      * @param string $login
      * @return Users
      */
     public function setLogin($login)
     {
         $this->login = $login;
-
+    
         return $this;
     }
 
@@ -108,7 +107,7 @@ class Users
     public function setPassword($password)
     {
         $this->password = $password;
-
+    
         return $this;
     }
 
@@ -131,7 +130,7 @@ class Users
     public function setName($name)
     {
         $this->name = $name;
-
+    
         return $this;
     }
 
@@ -154,7 +153,7 @@ class Users
     public function setSurname($surname)
     {
         $this->surname = $surname;
-
+    
         return $this;
     }
 
@@ -177,7 +176,7 @@ class Users
     public function setOther($other)
     {
         $this->other = $other;
-
+    
         return $this;
     }
 
@@ -200,7 +199,7 @@ class Users
     public function setEmail($email)
     {
         $this->email = $email;
-
+    
         return $this;
     }
 
@@ -233,7 +232,7 @@ class Users
     public function setGroup(\MDM\mdmBundle\Entity\Groups $group = null)
     {
         $this->group = $group;
-
+    
         return $this;
     }
 

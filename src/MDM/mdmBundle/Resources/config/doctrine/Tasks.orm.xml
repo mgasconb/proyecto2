@@ -3,13 +3,12 @@
   <entity name="MDM\mdmBundle\Entity\Tasks" table="tasks">
     <unique-constraints>
       <unique-constraint name="id_UNIQUE" columns="id"/>
-      <unique-constraint name="group_id_UNIQUE" columns="group_id"/>
     </unique-constraints>
     <id name="id" type="integer" column="id">
       <generator strategy="IDENTITY"/>
     </id>
     <field name="name" type="string" column="name" length="45" nullable="false"/>
     <field name="groupId" type="string" column="group_id" length="45" nullable="false"/>
-    <field name="other" type="string" column="other" length="45" nullable="true"/>
+    <field name="other" type="string" column="other" length="255" nullable="true"/>
   </entity>
 </doctrine-mapping>

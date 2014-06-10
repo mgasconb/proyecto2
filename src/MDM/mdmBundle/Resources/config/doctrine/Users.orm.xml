@@ -15,7 +15,7 @@
     <field name="password" type="string" column="password" length="45" nullable="false"/>
     <field name="name" type="string" column="name" length="45" nullable="false"/>
     <field name="surname" type="string" column="surname" length="45" nullable="false"/>
-    <field name="other" type="string" column="other" length="45" nullable="true"/>
+    <field name="other" type="string" column="other" length="255" nullable="true"/>
     <field name="email" type="string" column="email" length="100" nullable="false"/>
     <many-to-one field="group" target-entity="Groups">
       <join-columns>

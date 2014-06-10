@@ -62,7 +62,7 @@ class RolesUsers
     public function setRol(\MDM\mdmBundle\Entity\Roles $rol = null)
     {
         $this->rol = $rol;
-
+    
         return $this;
     }
 
@@ -85,7 +85,7 @@ class RolesUsers
     public function setUser(\MDM\mdmBundle\Entity\Users $user = null)
     {
         $this->user = $user;
-
+    
         return $this;
     }
 

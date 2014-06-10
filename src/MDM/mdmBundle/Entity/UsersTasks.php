@@ -62,7 +62,7 @@ class UsersTasks
     public function setTask(\MDM\mdmBundle\Entity\Tasks $task = null)
     {
         $this->task = $task;
-
+    
         return $this;
     }
 
@@ -85,7 +85,7 @@ class UsersTasks
     public function setUser(\MDM\mdmBundle\Entity\Users $user = null)
     {
         $this->user = $user;
-
+    
         return $this;
     }
 

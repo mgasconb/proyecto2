@@ -1,0 +1,39 @@
+<?php
+
+namespace MDM\mdmBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Permisos
+ *
+ * @ORM\Table(name="permisos", uniqueConstraints={@ORM\UniqueConstraint(name="perID_UNIQUE", columns={"perID"})})
+ * @ORM\Entity
+ */
+class Permisos
+{
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="pernombre", type="string", length=45, nullable=false)
+     */
+    private $pernombre;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="perdescripcion", type="string", length=45, nullable=false)
+     */
+    private $perdescripcion;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="perID", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $perid;
+
+
+}

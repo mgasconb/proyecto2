@@ -1,0 +1,45 @@
+<?php
+
+namespace MDM\mdmBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * UsuariosRoles
+ *
+ * @ORM\Table(name="usuarios_roles", uniqueConstraints={@ORM\UniqueConstraint(name="urID_UNIQUE", columns={"urID"})}, indexes={@ORM\Index(name="urusrID_idx", columns={"urusrID"}), @ORM\Index(name="urrolID_idx", columns={"urrolID"})})
+ * @ORM\Entity
+ */
+class UsuariosRoles
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="urID", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $urid;
+
+    /**
+     * @var \MDM\mdmBundle\Entity\Roles
+     *
+     * @ORM\ManyToOne(targetEntity="MDM\mdmBundle\Entity\Roles")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="urrolID", referencedColumnName="rolID")
+     * })
+     */
+    private $urrolid;
+
+    /**
+     * @var \MDM\mdmBundle\Entity\Usuarios
+     *
+     * @ORM\ManyToOne(targetEntity="MDM\mdmBundle\Entity\Usuarios")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="urusrID", referencedColumnName="usrID")
+     * })
+     */
+    private $urusrid;
+
+
+}

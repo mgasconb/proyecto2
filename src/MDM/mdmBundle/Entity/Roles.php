@@ -46,7 +46,7 @@ class Roles
     public function setName($name)
     {
         $this->name = $name;
-
+    
         return $this;
     }
 
@@ -69,7 +69,7 @@ class Roles
     public function setDescription($description)
     {
         $this->description = $description;
-
+    
         return $this;
     }
 

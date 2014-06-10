@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Tasks
  *
- * @ORM\Table(name="tasks", uniqueConstraints={@ORM\UniqueConstraint(name="id_UNIQUE", columns={"id"}), @ORM\UniqueConstraint(name="group_id_UNIQUE", columns={"group_id"})})
+ * @ORM\Table(name="tasks", uniqueConstraints={@ORM\UniqueConstraint(name="id_UNIQUE", columns={"id"})})
  * @ORM\Entity
  */
 class Tasks
@@ -29,7 +29,7 @@ class Tasks
     /**
      * @var string
      *
-     * @ORM\Column(name="other", type="string", length=45, nullable=true)
+     * @ORM\Column(name="other", type="string", length=255, nullable=true)
      */
     private $other;
 
@@ -53,7 +53,7 @@ class Tasks
     public function setName($name)
     {
         $this->name = $name;
-
+    
         return $this;
     }
 
@@ -76,7 +76,7 @@ class Tasks
     public function setGroupId($groupId)
     {
         $this->groupId = $groupId;
-
+    
         return $this;
     }
 
@@ -99,7 +99,7 @@ class Tasks
     public function setOther($other)
     {
         $this->other = $other;
-
+    
         return $this;
     }
 
