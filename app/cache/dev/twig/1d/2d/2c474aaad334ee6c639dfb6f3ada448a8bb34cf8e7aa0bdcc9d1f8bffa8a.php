@@ -157,7 +157,10 @@ class __TwigTemplate_1d2d2c474aaad334ee6c639dfb6f3ada448a8bb34cf8e7aa0bdcc9d1f8b
                     </ul>  
                 </form>
 
-                <form id=\"formCrearG\">
+                <form id=\"formCrearG\" method=\"POST\" path=\"";
+        // line 133
+        echo $this->env->getExtension('routing')->getPath("mdm_user_signup");
+        echo "\">
                     <ul>  
                         <li>
                             <label>Nombre</label><input class=\"campos\" type=\"text\" name=\"nombre\">
@@ -211,6 +214,6 @@ class __TwigTemplate_1d2d2c474aaad334ee6c639dfb6f3ada448a8bb34cf8e7aa0bdcc9d1f8b
 
     public function getDebugInfo()
     {
-        return array (  131 => 105,  32 => 9,  26 => 6,  19 => 1,);
+        return array (  162 => 133,  131 => 105,  32 => 9,  26 => 6,  19 => 1,);
     }
 }

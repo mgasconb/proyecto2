@@ -90,34 +90,70 @@ class DefaultController extends Controller {
     }
 
     public function signupAction(Request $request) {
-        $group="";
+        $group = "";
         if ($request->getMethod() == 'POST') {
-            
+
             $em = $this->getDoctrine()->getEntityManager();
-            
-            $nombre = $request->get('nombre');
-            $apellidos = $request->get('apellidos');
-            $login = $request->get('login');
-            $password = $request->get('password');
-            $email = $request->get('email');
-            $other = $request->get('other');
-            $groupName= $request->get('groupname');
-            $group = $this->getDoctrine()
-                    ->getRepository('mdmBundle:Groups')
-                ->findOneByName(array('name'=>$groupName));
-            
-        var_dump($group);
-            $user = new Users();
-            $user->setName($nombre);
-            $user->setSurname($apellidos);
-            $user->setLogin($login);
-            $user->setPassword($password);
-            $user->setEmail($email);
-            $user->setOther($other);
-            $user->setGroup($group);
-            
-            $em->persist($user);
-            $em->flush();
+
+            $descripcion = $request->get('descripcion');
+            if ($descripcion == NULL) {
+                $nombre = $request->get('nombre');
+                $apellidos = $request->get('apellidos');
+                $login = $request->get('login');
+                $password = $request->get('password');
+                $email = $request->get('email');
+                $other = $request->get('other');
+                $groupName = $request->get('groupname');
+                $group = $this->getDoctrine()
+                        ->getRepository('mdmBundle:Groups')
+                        ->findOneByName(array('name' => $groupName));
+
+                $user = new Users();
+                $user->setName($nombre);
+                $user->setSurname($apellidos);
+                $user->setLogin($login);
+                $user->setPassword($password);
+                $user->setEmail($email);
+                $user->setOther($other);
+                $user->setGroup($group);
+
+                $em->persist($user);
+                $em->flush();
+            } else {
+                if ($descripcion != NULL) {
+                    $nombre = $request->get('nombre');
+                    $apellidos = $request->get('apellidos');
+                    $login = $request->get('login');
+                    $password = $request->get('password');
+                    $email = $request->get('email');
+                    $other = $request->get('other');
+                    $groupName = $request->get('nombreGrupo');
+                    $descripcion = $request->get('descripcion');
+                    
+                    $grupo= new Groups();
+                    $grupo->setName($groupName);
+                    $grupo->setDescription($descripcion);
+                    $em->persist($grupo);
+                    $em->flush();
+                    
+                    $group = $this->getDoctrine()
+                        ->getRepository('mdmBundle:Groups')
+                        ->findOneByName(array('name' => $groupName));
+
+
+                    $user = new Users();
+                    $user->setName($nombre);
+                    $user->setSurname($apellidos);
+                    $user->setLogin($login);
+                    $user->setPassword($password);
+                    $user->setEmail($email);
+                    $user->setOther($other);
+                    $user->setGroup($group);
+
+                    $em->persist($user);
+                    $em->flush();
+                }
+            }
         }
         return $this->render('mdmBundle:Users:signup.html.twig');
     }

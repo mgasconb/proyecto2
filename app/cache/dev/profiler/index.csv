@@ -470,3 +470,12 @@ fb8b7d,::1,GET,http://localhost/proyecto_antiguo/web/app_dev.php/signup/,1402441
 326000,::1,GET,http://localhost/proyecto_antiguo/web/app_dev.php/signup/,1402441966,
 47eca6,::1,GET,http://localhost/proyecto_antiguo/web/app_dev.php/signup/,1402442113,
 7f5920,::1,POST,http://localhost/proyecto_antiguo/web/app_dev.php/signup/,1402442124,
+5f5dc7,::1,GET,http://localhost/proyecto_antiguo/web/app_dev.php/signup/,1402443201,
+32c6a8,::1,GET,http://localhost/proyecto_antiguo/web/app_dev.php/signup/,1402443236,
+098dec,::1,GET,http://localhost/proyecto_antiguo/web/app_dev.php/signup/?apellidos=a&descripcion=a&email=a&login=a&nombre=a&nombreGrupo=a&other=a&password=aa,1402443249,
+1baa3b,::1,GET,http://localhost/proyecto_antiguo/web/app_dev.php/signup/,1402443925,
+3bec3b,::1,GET,http://localhost/proyecto_antiguo/web/app_dev.php/signup/,1402443934,755316
+755316,::1,POST,http://localhost/proyecto_antiguo/web/app_dev.php/signup/,1402443934,
+053199,::1,GET,http://localhost/proyecto_antiguo/web/app_dev.php/signup/,1402443948,
+30c9e2,::1,GET,http://localhost/proyecto_antiguo/web/app_dev.php/signup/,1402443954,
+698ca2,::1,POST,http://localhost/proyecto_antiguo/web/app_dev.php/signup/,1402443998,
