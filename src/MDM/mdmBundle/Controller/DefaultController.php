@@ -62,17 +62,20 @@ class DefaultController extends Controller {
                 $user->setEmail($email);
                 $user->setOther($other);
                 $user->setGroup($group);
+                $user->setRoles('ROLE_JEFE');
                 
                 $em->persist($user);
                 $em->flush();
                 /*Creamos el rol y el rolusuario*/
-                
+                /*No funciona*/
+                /*
                 $rol=new RolesUsers();
                 $rol->setRol(3);
                 $rol->setUser($user);
                 
                 $em->persist($rol);
                 $em->flush();
+                 */
                 
             } else {
                 if ($descripcion != NULL) {
@@ -149,7 +152,11 @@ class DefaultController extends Controller {
         $tasks = $em->getRepository('mdmBundle:UsersTasks')
                 ->findByUser($id);
         //coger taskid -> task findId($tasks id)
-        return $this->render('mdmBundle:Tasks:showTasks.html.twig', array('all' => $tasks));
+        
+        $usuario= $em->getRepository('mdmBundle:UsersTasks')
+                ->findById(3);
+        
+        return $this->render('mdmBundle:Tasks:showTasks.html.twig', array('all' => $tasks, 'roles'=>$usuario));
     }
 
     /* funcion que muestra todas las tareas de un grupo */
