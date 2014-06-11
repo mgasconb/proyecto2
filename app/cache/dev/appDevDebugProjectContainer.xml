@@ -292,7 +292,11 @@
     <parameter key="security.access.always_authenticate_before_granting">false</parameter>
     <parameter key="security.authentication.hide_user_not_found">true</parameter>
     <parameter key="security.role_hierarchy.roles" type="collection">
+      <parameter key="ROLE_JEFE" type="collection">
+        <parameter>ROLE_USER</parameter>
+      </parameter>
       <parameter key="ROLE_ADMIN" type="collection">
+        <parameter>ROLE_JEFE</parameter>
         <parameter>ROLE_USER</parameter>
       </parameter>
       <parameter key="ROLE_SUPER_ADMIN" type="collection">
@@ -1693,7 +1697,11 @@
     </service>
     <service id="security.role_hierarchy" class="Symfony\Component\Security\Core\Role\RoleHierarchy" public="false">
       <argument type="collection">
+        <argument key="ROLE_JEFE" type="collection">
+          <argument>ROLE_USER</argument>
+        </argument>
         <argument key="ROLE_ADMIN" type="collection">
+          <argument>ROLE_JEFE</argument>
           <argument>ROLE_USER</argument>
         </argument>
         <argument key="ROLE_SUPER_ADMIN" type="collection">

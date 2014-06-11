@@ -39,7 +39,7 @@ class DefaultController extends Controller {
         $group = "";
         if ($request->getMethod() == 'POST') {
 
-            $em = $this->getDoctrine()->getEntityManager();
+            $em = $this->getDoctrine()->getManager();
 
             $descripcion = $request->get('descripcion');
             if ($descripcion == NULL) {
@@ -62,9 +62,18 @@ class DefaultController extends Controller {
                 $user->setEmail($email);
                 $user->setOther($other);
                 $user->setGroup($group);
-
+                
                 $em->persist($user);
                 $em->flush();
+                /*Creamos el rol y el rolusuario*/
+                
+                $rol=new RolesUsers();
+                $rol->setRol(3);
+                $rol->setUser($user);
+                
+                $em->persist($rol);
+                $em->flush();
+                
             } else {
                 if ($descripcion != NULL) {
                     $nombre = $request->get('nombre');

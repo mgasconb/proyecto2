@@ -3246,7 +3246,7 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getSecurity_RoleHierarchyService()
     {
-        return $this->services['security.role_hierarchy'] = new \Symfony\Component\Security\Core\Role\RoleHierarchy(array('ROLE_ADMIN' => array(0 => 'ROLE_USER'), 'ROLE_SUPER_ADMIN' => array(0 => 'ROLE_USER', 1 => 'ROLE_ADMIN', 2 => 'ROLE_ALLOWED_TO_SWITCH')));
+        return $this->services['security.role_hierarchy'] = new \Symfony\Component\Security\Core\Role\RoleHierarchy(array('ROLE_JEFE' => array(0 => 'ROLE_USER'), 'ROLE_ADMIN' => array(0 => 'ROLE_JEFE', 1 => 'ROLE_USER'), 'ROLE_SUPER_ADMIN' => array(0 => 'ROLE_USER', 1 => 'ROLE_ADMIN', 2 => 'ROLE_ALLOWED_TO_SWITCH')));
     }
 
     /**
@@ -3723,8 +3723,12 @@ class appDevDebugProjectContainer extends Container
             'security.access.always_authenticate_before_granting' => false,
             'security.authentication.hide_user_not_found' => true,
             'security.role_hierarchy.roles' => array(
-                'ROLE_ADMIN' => array(
+                'ROLE_JEFE' => array(
                     0 => 'ROLE_USER',
+                ),
+                'ROLE_ADMIN' => array(
+                    0 => 'ROLE_JEFE',
+                    1 => 'ROLE_USER',
                 ),
                 'ROLE_SUPER_ADMIN' => array(
                     0 => 'ROLE_USER',
