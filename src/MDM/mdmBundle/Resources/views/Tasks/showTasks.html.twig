@@ -54,14 +54,17 @@
             <section id="tareas">
 
                 <div id="divTareas">
-
+                    {% if all %}
                          {%for task in all %}
                     <div>
                         <p>Nombre de la tarea: {{ task.getTask.getName}}</p>
                         <p>Grupo: {{ task.getTask.getGroupId}}</p>
                         <p>Otro: {{ task.getTask.getOther}}</p>
                     </div>
-                         {% endfor %} 
+                         {% endfor %}
+                    {% else %}
+                    <div>No hay tareas para mostrar</div>
+                    {% endif %}
                 </div>
 
             </section>
