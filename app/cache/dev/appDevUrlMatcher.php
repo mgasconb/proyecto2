@@ -199,6 +199,15 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
             return $this->mergeDefaults(array_replace($matches, array('_route' => 'mdm_tasks_delete')), array (  '_controller' => 'MDM\\mdmBundle\\Controller\\DefaultController::deleteTaskAction',));
         }
 
+        // mdm_tasks_modify
+        if (0 === strpos($pathinfo, '/modifytask') && preg_match('#^/modifytask/(?P<id>[^/]++)/?$#s', $pathinfo, $matches)) {
+            if (substr($pathinfo, -1) !== '/') {
+                return $this->redirect($pathinfo.'/', 'mdm_tasks_modify');
+            }
+
+            return $this->mergeDefaults(array_replace($matches, array('_route' => 'mdm_tasks_modify')), array (  '_controller' => 'MDM\\mdmBundle\\Controller\\DefaultController::modifyTaskAction',));
+        }
+
         // _welcome
         if (rtrim($pathinfo, '/') === '') {
             if (substr($pathinfo, -1) !== '/') {

@@ -34,6 +34,7 @@ class DefaultController extends Controller {
         }
         return $this->render('mdmBundle:Tasks:new.html.twig', array('form' => $form->createView()));
     }
+
     public function signupAction(Request $request) {
         $group = "";
         if ($request->getMethod() == 'POST') {
@@ -74,16 +75,16 @@ class DefaultController extends Controller {
                     $other = $request->get('other');
                     $groupName = $request->get('nombreGrupo');
                     $descripcion = $request->get('descripcion');
-                    
-                    $grupo= new Groups();
+
+                    $grupo = new Groups();
                     $grupo->setName($groupName);
                     $grupo->setDescription($descripcion);
                     $em->persist($grupo);
                     $em->flush();
-                    
+
                     $group = $this->getDoctrine()
-                        ->getRepository('mdmBundle:Groups')
-                        ->findOneByName(array('name' => $groupName));
+                            ->getRepository('mdmBundle:Groups')
+                            ->findOneByName(array('name' => $groupName));
 
 
                     $user = new Users();
@@ -123,7 +124,7 @@ class DefaultController extends Controller {
                     ->findOneBy(array('login' => $username, 'password' => $userpassword));
             if ($user) {
 
-                return $this->AllTaskUserAction($user->getId());
+                return $this->redirect($this->generateUrl("mdm_tasks_user", array("id" => $user->getId())));
             } else {
                 return $this->render('mdmBundle:Users:formularioGrupo.html.twig', array('name' => 'LOGIN FAILED'));
             }
@@ -166,12 +167,29 @@ class DefaultController extends Controller {
         return $this->render('mdmBundle:Default:deletetask.html.twig', array('message' => 'Seguro de forrar la tarea'));
     }
 
-    public function modifyTaskAction($id) {
+    public function modifyTaskAction($id, Request $request) {
         $em = $this->getDoctrine()->getManager();
         $task = $em->getRepository('mdmBundle:Tasks')
-                ->find($id);
-
-        return $this->render('mdmBundle:Default:editTasks.html.twig', array('all' => $task));
+                ->findOneBy(array('id' => $id));
+        
+        $form = $this->createFormBuilder()
+                ->add('name', 'text', array('hola'=>'hola'))
+                ->add('other', 'text')
+                ->add('save', 'submit')
+                ->getForm();
+        
+        
+        $form->handleRequest($request);
+        if ($form->isValid()) {
+            $data = $form->getData();
+            
+            $task->setName($data['name']);
+            $task->setOther($data['other']);
+            $em->persist($task);
+            $em->flush();
+            return $this->render('mdmBundle:Tasks:editTasks.html.twig', array('form' => $form->createView()));
+        }
+        return $this->render('mdmBundle:Tasks:editTasks.html.twig', array('form' => $form->createView()));
     }
 
 }

@@ -31,4 +31,8 @@ mdm_tasks_group:
 mdm_tasks_delete:
      pattern: /deletetask/{id}/
      defaults:   { _controller: mdmBundle:Default:deleteTask }
+     
+mdm_tasks_modify:
+     pattern: /modifytask/{id}/
+     defaults:   { _controller: mdmBundle:Default:modifyTask }
     
