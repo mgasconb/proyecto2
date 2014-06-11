@@ -78,27 +78,27 @@ class __TwigTemplate_929596265da2fefa4877ca1c4139ad3d9f71063b75ec50460bb55f4e896
             <section id=\"tareas\">
                 <form id=\"formEditarTareas\" method=\"POST\">
                     <div id=\"divTareas\">
-                        {<ul>
+                        <div>
                             ";
         // line 58
         echo         $this->env->getExtension('form')->renderer->renderBlock((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), 'form_start');
         echo "
 
 
-                            <li>
+                          
                                         ";
         // line 62
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "name"), 'row');
         echo "
-                            </li>
+                            </div>
 
 
-                            <li>
+                            <div>
                                         ";
         // line 67
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "other"), 'row');
         echo "
-                            </li>
+                            </div>
 
 ";
         // line 70

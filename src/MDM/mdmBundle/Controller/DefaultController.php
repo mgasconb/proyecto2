@@ -173,8 +173,8 @@ class DefaultController extends Controller {
                 ->findOneBy(array('id' => $id));
         
         $form = $this->createFormBuilder()
-                ->add('name', 'text', array('hola'=>'hola'))
-                ->add('other', 'text')
+                ->add('name', 'text', array('data'=>$task->getName()))
+                ->add('other', 'text', array('data'=>$task->getOther()))
                 ->add('save', 'submit')
                 ->getForm();
         

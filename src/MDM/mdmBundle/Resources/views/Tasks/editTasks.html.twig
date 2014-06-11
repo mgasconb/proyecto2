@@ -54,18 +54,18 @@
             <section id="tareas">
                 <form id="formEditarTareas" method="POST">
                     <div id="divTareas">
-                        {<ul>
+                        <div>
                             {{ form_start(form) }}
 
 
-                            <li>
+                          
                                         {{ form_row(form.name) }}
-                            </li>
+                            </div>
 
 
-                            <li>
+                            <div>
                                         {{ form_row(form.other) }}
-                            </li>
+                            </div>
 
 {{ form_end(form) }}
                         </ul>
