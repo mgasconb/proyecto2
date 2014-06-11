@@ -3,8 +3,8 @@ mdm_homepage:
     defaults: { _controller: mdmBundle:Default:index }
 
 mdm_form_task:
-    pattern:  /form/
-    defaults: { _controller: mdmBundle:Default:form }
+    pattern:  /createTasks/
+    defaults: { _controller: mdmBundle:Default:createTasks }
     
 mdm_form_users:
     pattern:  /form_users/
@@ -20,7 +20,7 @@ mdm_user_signup:
 
 
 mdm_tasks_user:
-    pattern:    /allTasks/
+    pattern:    /allTasks/{id}
     defaults:   { _controller: mdmBundle:Default:AllTaskUser }
     
 mdm_tasks_group:

@@ -140,25 +140,22 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
             return $this->mergeDefaults(array_replace($matches, array('_route' => 'mdm_homepage')), array (  '_controller' => 'MDM\\mdmBundle\\Controller\\DefaultController::indexAction',));
         }
 
-        if (0 === strpos($pathinfo, '/form')) {
-            // mdm_form_task
-            if (rtrim($pathinfo, '/') === '/form') {
-                if (substr($pathinfo, -1) !== '/') {
-                    return $this->redirect($pathinfo.'/', 'mdm_form_task');
-                }
-
-                return array (  '_controller' => 'MDM\\mdmBundle\\Controller\\DefaultController::formAction',  '_route' => 'mdm_form_task',);
+        // mdm_form_task
+        if (rtrim($pathinfo, '/') === '/createTasks') {
+            if (substr($pathinfo, -1) !== '/') {
+                return $this->redirect($pathinfo.'/', 'mdm_form_task');
             }
 
-            // mdm_form_users
-            if (rtrim($pathinfo, '/') === '/form_users') {
-                if (substr($pathinfo, -1) !== '/') {
-                    return $this->redirect($pathinfo.'/', 'mdm_form_users');
-                }
+            return array (  '_controller' => 'MDM\\mdmBundle\\Controller\\DefaultController::createTasksAction',  '_route' => 'mdm_form_task',);
+        }
 
-                return array (  '_controller' => 'MDM\\mdmBundle\\Controller\\DefaultController::formUsersAction',  '_route' => 'mdm_form_users',);
+        // mdm_form_users
+        if (rtrim($pathinfo, '/') === '/form_users') {
+            if (substr($pathinfo, -1) !== '/') {
+                return $this->redirect($pathinfo.'/', 'mdm_form_users');
             }
 
+            return array (  '_controller' => 'MDM\\mdmBundle\\Controller\\DefaultController::formUsersAction',  '_route' => 'mdm_form_users',);
         }
 
         // mdm_form_login
@@ -180,12 +177,8 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
         }
 
         // mdm_tasks_user
-        if (rtrim($pathinfo, '/') === '/allTasks') {
-            if (substr($pathinfo, -1) !== '/') {
-                return $this->redirect($pathinfo.'/', 'mdm_tasks_user');
-            }
-
-            return array (  '_controller' => 'MDM\\mdmBundle\\Controller\\DefaultController::AllTaskUserAction',  '_route' => 'mdm_tasks_user',);
+        if (0 === strpos($pathinfo, '/allTasks') && preg_match('#^/allTasks/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+            return $this->mergeDefaults(array_replace($matches, array('_route' => 'mdm_tasks_user')), array (  '_controller' => 'MDM\\mdmBundle\\Controller\\DefaultController::AllTaskUserAction',));
         }
 
         // mdm_tasks_group

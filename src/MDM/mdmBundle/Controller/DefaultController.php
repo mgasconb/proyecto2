@@ -12,11 +12,7 @@ use Symfony\Component\HttpFoundation\Response;
 
 class DefaultController extends Controller {
 
-    public function indexAction($name) {
-        return $this->render('mdmBundle:Default:index.html.twig', array('name' => $name));
-    }
-
-    public function formAction(Request $request) {
+    public function createTasksAction(Request $request) {
         $task = new Tasks();
         $form = $this->createFormBuilder()
                 ->add('name', 'text')
@@ -38,57 +34,6 @@ class DefaultController extends Controller {
         }
         return $this->render('mdmBundle:Tasks:new.html.twig', array('form' => $form->createView()));
     }
-
-    public function formUsersAction(Request $request) {
-        $id = 1;
-        $em = $this->getDoctrine()->getManager();
-        $group = $em->getRepository('mdmBundle:Groups')
-                ->find($id);
-
-
-        $user = new Users();
-        $form = $this->createFormBuilder()
-                ->add('login', 'text')
-                ->add('password', 'text')
-                ->add('name', 'text')
-                ->add('surname', 'text')
-                ->add('other', 'text')
-                ->add('email', 'text')
-                ->add('save', 'submit')
-                ->getForm();
-        /* ->add('group', 'text', array('mapped' => false))
-          ->add('id', 'text', array('mapped' => false)) */
-
-        $form->handleRequest($request);
-
-        if ($form->isValid()) {
-
-            $data = $form->getData();
-
-            $user->setName($data['name']);
-            $user->setEmail($data['email']);
-            $user->setSurname($data['surname']);
-            $user->setLogin($data['login']);
-            $user->setOther($data['other']);
-            $user->setPassword($data['password']);
-            $user->setGroup($group);
-
-
-
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($user);
-            $em->flush();
-            /**  Aqui una vez registrado le 
-             * redirigimos a otra pagina que sera bienvenido 
-             * ya puede loguearse y disfrutar de esta aplicación(algo así).
-             * Por el momento le dirigo a esta pagina que ya estaba hecha, que es una prueba .
-             */
-            return $this->redirect($this->generateUrl('mdm_form_task'));
-        }
-
-        return $this->render('mdmBundle:Users:formularioUsuarios.html.twig', array('form' => $form->createView()));
-    }
-
     public function signupAction(Request $request) {
         $group = "";
         if ($request->getMethod() == 'POST') {
@@ -178,7 +123,7 @@ class DefaultController extends Controller {
                     ->findOneBy(array('login' => $username, 'password' => $userpassword));
             if ($user) {
 
-                return $this->AllTaskUser($user->getId());
+                return $this->AllTaskUserAction($user->getId());
             } else {
                 return $this->render('mdmBundle:Users:formularioGrupo.html.twig', array('name' => 'LOGIN FAILED'));
             }
@@ -194,11 +139,7 @@ class DefaultController extends Controller {
         $tasks = $em->getRepository('mdmBundle:UsersTasks')
                 ->findByUser($id);
         //coger taskid -> task findId($tasks id)
-
-
-
-
-        return $this->render('mdmBundle:Tasks:index.html.twig', array('all' => $tasks));
+        return $this->render('mdmBundle:Tasks:showTasks.html.twig', array('all' => $tasks));
     }
 
     /* funcion que muestra todas las tareas de un grupo */
