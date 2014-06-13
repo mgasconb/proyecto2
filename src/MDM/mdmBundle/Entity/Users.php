@@ -2,7 +2,6 @@
 
 namespace MDM\mdmBundle\Entity;
 
-use Symfony\Component\Security\Core\User\UserInterface;
 use Doctrine\ORM\Mapping as ORM;
 
 /**

@@ -153,10 +153,8 @@ class DefaultController extends Controller {
                 ->findByUser($id);
         //coger taskid -> task findId($tasks id)
         
-        $usuario= $em->getRepository('mdmBundle:UsersTasks')
-                ->findById(3);
         
-        return $this->render('mdmBundle:Tasks:showTasks.html.twig', array('all' => $tasks, 'roles'=>$usuario));
+        return $this->render('mdmBundle:Tasks:showTasks.html.twig', array('all' => $tasks));
     }
 
     /* funcion que muestra todas las tareas de un grupo */
@@ -165,10 +163,10 @@ class DefaultController extends Controller {
 
         $em = $this->getDoctrine()->getManager();
         $task = $em->getRepository('mdmBundle:Tasks')
-                ->findByGroupId($id);
+                ->findBygroup_id($id);
 
 
-        return $this->render('mdmBundle:Default:taskgroup.html.twig', array('all' => $task));
+        return $this->render('mdmBundle:tasks:tasksgroup.html.twig', array('all' => $task));
     }
 
     public function deleteTaskAction($id) {

@@ -22,16 +22,6 @@ class RolesUsers
     private $id;
 
     /**
-     * @var \MDM\mdmBundle\Entity\Roles
-     *
-     * @ORM\ManyToOne(targetEntity="MDM\mdmBundle\Entity\Roles")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="rol_id", referencedColumnName="id")
-     * })
-     */
-    private $rol;
-
-    /**
      * @var \MDM\mdmBundle\Entity\Users
      *
      * @ORM\ManyToOne(targetEntity="MDM\mdmBundle\Entity\Users")
@@ -40,6 +30,16 @@ class RolesUsers
      * })
      */
     private $user;
+
+    /**
+     * @var \MDM\mdmBundle\Entity\Roles
+     *
+     * @ORM\ManyToOne(targetEntity="MDM\mdmBundle\Entity\Roles")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="rol_id", referencedColumnName="id")
+     * })
+     */
+    private $rol;
 
 
 
@@ -51,29 +51,6 @@ class RolesUsers
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * Set rol
-     *
-     * @param \MDM\mdmBundle\Entity\Roles $rol
-     * @return RolesUsers
-     */
-    public function setRol(\MDM\mdmBundle\Entity\Roles $rol = null)
-    {
-        $this->rol = $rol;
-    
-        return $this;
-    }
-
-    /**
-     * Get rol
-     *
-     * @return \MDM\mdmBundle\Entity\Roles 
-     */
-    public function getRol()
-    {
-        return $this->rol;
     }
 
     /**
@@ -97,5 +74,28 @@ class RolesUsers
     public function getUser()
     {
         return $this->user;
+    }
+
+    /**
+     * Set rol
+     *
+     * @param \MDM\mdmBundle\Entity\Roles $rol
+     * @return RolesUsers
+     */
+    public function setRol(\MDM\mdmBundle\Entity\Roles $rol = null)
+    {
+        $this->rol = $rol;
+    
+        return $this;
+    }
+
+    /**
+     * Get rol
+     *
+     * @return \MDM\mdmBundle\Entity\Roles 
+     */
+    public function getRol()
+    {
+        return $this->rol;
     }
 }

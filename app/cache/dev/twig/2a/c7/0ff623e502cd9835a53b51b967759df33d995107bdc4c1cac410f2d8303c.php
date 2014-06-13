@@ -116,24 +116,8 @@ class __TwigTemplate_2ac70ff623e502cd9835a53b51b967759df33d995107bdc4c1cac410f2d
         // line 68
         echo "                </div>
                 
-                ";
-        // line 70
-        $context['_parent'] = (array) $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["roles"]) ? $context["roles"] : $this->getContext($context, "roles")));
-        foreach ($context['_seq'] as $context["_key"] => $context["user"]) {
-            // line 71
-            echo "                a
-                ";
-            // line 72
-            echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute((isset($context["user"]) ? $context["user"] : $this->getContext($context, "user")), "getUser"), "getRoles"), "html", null, true);
-            echo "
-                ";
-        }
-        $_parent = $context['_parent'];
-        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['user'], $context['_parent'], $context['loop']);
-        $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 74
-        echo "            </section>
+                
+            </section>
 
             <footer>
 
@@ -157,6 +141,6 @@ class __TwigTemplate_2ac70ff623e502cd9835a53b51b967759df33d995107bdc4c1cac410f2d
 
     public function getDebugInfo()
     {
-        return array (  136 => 74,  128 => 72,  125 => 71,  121 => 70,  117 => 68,  113 => 66,  110 => 65,  101 => 62,  97 => 61,  93 => 60,  90 => 59,  85 => 58,  83 => 57,  30 => 7,  24 => 4,  19 => 1,);
+        return array (  117 => 68,  113 => 66,  110 => 65,  101 => 62,  97 => 61,  93 => 60,  90 => 59,  85 => 58,  83 => 57,  30 => 7,  24 => 4,  19 => 1,);
     }
 }

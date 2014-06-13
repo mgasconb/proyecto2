@@ -22,16 +22,6 @@ class UsersTasks
     private $id;
 
     /**
-     * @var \MDM\mdmBundle\Entity\Tasks
-     *
-     * @ORM\ManyToOne(targetEntity="MDM\mdmBundle\Entity\Tasks")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="task_id", referencedColumnName="id")
-     * })
-     */
-    private $task;
-
-    /**
      * @var \MDM\mdmBundle\Entity\Users
      *
      * @ORM\ManyToOne(targetEntity="MDM\mdmBundle\Entity\Users")
@@ -40,6 +30,16 @@ class UsersTasks
      * })
      */
     private $user;
+
+    /**
+     * @var \MDM\mdmBundle\Entity\Tasks
+     *
+     * @ORM\ManyToOne(targetEntity="MDM\mdmBundle\Entity\Tasks")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="task_id", referencedColumnName="id")
+     * })
+     */
+    private $task;
 
 
 }

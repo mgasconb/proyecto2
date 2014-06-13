@@ -22,16 +22,6 @@ class UsersTasks
     private $id;
 
     /**
-     * @var \MDM\mdmBundle\Entity\Tasks
-     *
-     * @ORM\ManyToOne(targetEntity="MDM\mdmBundle\Entity\Tasks")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="task_id", referencedColumnName="id")
-     * })
-     */
-    private $task;
-
-    /**
      * @var \MDM\mdmBundle\Entity\Users
      *
      * @ORM\ManyToOne(targetEntity="MDM\mdmBundle\Entity\Users")
@@ -40,6 +30,16 @@ class UsersTasks
      * })
      */
     private $user;
+
+    /**
+     * @var \MDM\mdmBundle\Entity\Tasks
+     *
+     * @ORM\ManyToOne(targetEntity="MDM\mdmBundle\Entity\Tasks")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="task_id", referencedColumnName="id")
+     * })
+     */
+    private $task;
 
 
 
@@ -51,29 +51,6 @@ class UsersTasks
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * Set task
-     *
-     * @param \MDM\mdmBundle\Entity\Tasks $task
-     * @return UsersTasks
-     */
-    public function setTask(\MDM\mdmBundle\Entity\Tasks $task = null)
-    {
-        $this->task = $task;
-    
-        return $this;
-    }
-
-    /**
-     * Get task
-     *
-     * @return \MDM\mdmBundle\Entity\Tasks 
-     */
-    public function getTask()
-    {
-        return $this->task;
     }
 
     /**
@@ -97,5 +74,28 @@ class UsersTasks
     public function getUser()
     {
         return $this->user;
+    }
+
+    /**
+     * Set task
+     *
+     * @param \MDM\mdmBundle\Entity\Tasks $task
+     * @return UsersTasks
+     */
+    public function setTask(\MDM\mdmBundle\Entity\Tasks $task = null)
+    {
+        $this->task = $task;
+    
+        return $this;
+    }
+
+    /**
+     * Get task
+     *
+     * @return \MDM\mdmBundle\Entity\Tasks 
+     */
+    public function getTask()
+    {
+        return $this->task;
     }
 }
