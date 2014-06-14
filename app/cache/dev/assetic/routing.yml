@@ -2,4 +2,8 @@ _assetic:
     resource: .
     type: assetic
 _app:
+<<<<<<< HEAD
     resource: 'C:/xampp/htdocs/proyecto2-master/app/config/routing_dev.yml'
+=======
+    resource: 'D:/xampp/htdocs/proyecto2/app/config/routing_dev.yml'
+>>>>>>> 519934e4f91f49d86d693f075a0cd33dd7aa5a9f
