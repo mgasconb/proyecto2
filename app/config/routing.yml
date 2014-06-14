@@ -1,0 +1,4 @@
+mdm:
+    resource: "@mdmBundle/Resources/config/routing.yml"
+    prefix:   /
+

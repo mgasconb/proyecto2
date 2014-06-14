@@ -1,0 +1,89 @@
+{# src/MDM/mdmBundle/Resources/views/Default/formularioUsuarios.html.twig #}
+
+
+<!DOCTYPE HTML>
+<html>
+    <head>   
+        <title>MDM Gestión de Tareas</title>   
+            <meta charset="UTF-8"/>
+            <link rel="stylesheet" href="{{ asset('bundles/mdmmdm/css/styles.css') }}"
+            <link href="./img/favicon.ico" rel="icon" type="image/x-icon" />
+            <script type="text/javascript" src="{{ asset('bundles/mdmmdm/js/jquery-2.1.0.min.js') }}"></script>
+            <script>
+                $(document).ready(function() {
+                    $("#last").click(function() {
+                        if ($("#divForm").is(":hidden")) {
+                            $("#divForm").css("display", "inline-block");
+                            $("#divForm").slideDown("slow");
+                        }
+                        else {
+                            $("#divForm").slideUp("slow");
+                        }
+                    });
+                });
+                </script>
+            </head>
+
+            <body>
+                <div id="wrapper">
+            <header>
+                <div id="subheader"> 
+                    <div id="image"></div>
+                    <h1 id="signature">MDM Gestión de Tareas</h1><!--</div>-->
+                </div>
+                <nav>
+                    <a href="index.html">Home</a>
+                    <a href="perfil.html">Perfil</a>
+                    <a href="registro.html">Registro</a>
+                    <a id="last">Login</a>
+                </nav>
+                <div id="divForm">
+                    <form>
+                        <ul>  
+                            <li><label for="usermail">Email</label>  
+                                <input type="email" name="usermail" value="" placeholder="yourname@email.com"/></li>  
+                            <li><label for="password">Password</label>  
+                                <input type="password" name="password" value="" placeholder="password"/></li>  
+                            <li><input type="submit" value="Login"/></li>  
+                        </ul>  
+                    </form>
+                </div>
+            </header>
+                        
+                       
+                        <section id="formulario">
+                            
+                    
+                            
+                                <ul>
+                                    {%block login%}
+                                {{ form_start(form ,{'attr':{'id':'form_login'} }) }}
+                                {{ form_errors(form) }}
+                                    {# make the form fragment customization#}
+                                    {% block form_login %}
+                                     {#   custom field row output #}
+
+
+                                        <li>
+                                            {{ form_row(form.login ,{'attr':{'class':'campos'} }) }}
+                                        </li>
+                                    {% endblock form_login %}
+                                    {% block form_password %}
+                                        {# custom field row output #}
+                                        <li>
+                                            {{ form_row(form.password ,{'attr':{'class':'campos'} }) }}
+                                        </li>
+                                    {% endblock form_password %}
+                                {{ form_end(form) }}
+                                {%endblock%}        
+                                </ul>
+                            
+                                </section>
+                                
+                                <footer>
+
+                                    <div class="footerLinks">Copyright 2014 by MDM</div>
+                                </footer>
+                        </div>   
+                    </body>
+                </html>

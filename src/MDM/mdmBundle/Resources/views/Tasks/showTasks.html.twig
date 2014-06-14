@@ -1,0 +1,79 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <link rel="stylesheet" href="{{ asset('bundles/mdmmdm/css/styles.css') }}" type="text/css" />
+
+        <link href="./img/favicon.ico" rel="icon" type="image/x-icon" />
+        <script type="text/javascript" src="{{ asset('bundles/mdmmdm/js/jquery-2.1.0.min.js') }}"></script>
+        <title>MDM Gestión de tareas</title>
+        <meta charset="UTF-8"/>
+        <link rel="stylesheet" type="text/css" href="css/styles.css"/>
+        <link href="./img/favicon.ico" rel="icon" type="image/x-icon" />
+        <script type="text/javascript" src="jquery-2.1.0.min.js"></script>
+        <script>
+            $(document).ready(function() {
+                $("#last").click(function() {
+                    if ($("#divForm").is(":hidden")) {
+                        $("#divForm").css("display", "inline-block");
+                        $("#divForm").slideDown("slow");
+                    }
+                    else {
+                        $("#divForm").slideUp("slow");
+                    }
+                });
+            });
+        </script>
+    </head>
+
+    <body>
+        <div id="wrapper">
+            <header>
+                <div id="subheader"> 
+                    <div id="image"></div>
+                    <h1 id="signature">MDM Gestión de Tareas</h1><!--</div>-->
+                </div>
+                <nav>
+                    <a href="index.html">Home</a>
+                    <a href="perfil.html">Perfil</a>
+                    <a href="registro.html">Registro</a>
+                    <a id="last">Login</a>
+                </nav>                
+                <div id="divForm">
+                    <form>
+                        <ul>  
+                            <li><label for="usermail">Email</label>  
+                                <input type="email" name="usermail" value="" placeholder="yourname@email.com"/></li>  
+                            <li><label for="password">Password</label>  
+                                <input type="password" name="password" value="" placeholder="password"/></li>  
+                            <li><input type="submit" value="Login"/></li>  
+                        </ul>  
+                    </form>
+                </div>
+            </header>
+
+            <section id="tareas">
+
+                <div id="divTareas">
+                    {% if all %}
+                         {%for task in all %}
+                    <div>
+                        <p>Nombre de la tarea: {{ task.getTask.getName}}</p>
+                        <p>Grupo: {{ task.getTask.getGroupId}}</p>
+                        <p>Otro: {{ task.getTask.getOther}}</p>
+                    </div>
+                         {% endfor %}
+                    {% else %}
+                    <div>No hay tareas para mostrar</div>
+                    {% endif %}
+                </div>
+                
+                
+            </section>
+
+            <footer>
+
+                <div class="footerLinks"><a href="">Copyright 2014 by MDM</a></div>
+            </footer>
+        </div>   
+    </body>
+</html>
