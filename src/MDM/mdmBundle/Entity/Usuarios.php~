@@ -1,0 +1,70 @@
+<?php
+
+namespace MDM\mdmBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Usuarios
+ *
+ * @ORM\Table(name="usuarios", uniqueConstraints={@ORM\UniqueConstraint(name="usrID_UNIQUE", columns={"usrID"}), @ORM\UniqueConstraint(name="usrlogin_UNIQUE", columns={"usrlogin"})}, indexes={@ORM\Index(name="usrgrupoID_idx", columns={"usrgrupoID"})})
+ * @ORM\Entity
+ */
+class Usuarios
+{
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="usrlogin", type="string", length=45, nullable=false)
+     */
+    private $usrlogin;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="usrpassword", type="string", length=45, nullable=false)
+     */
+    private $usrpassword;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="usrnombre", type="string", length=45, nullable=false)
+     */
+    private $usrnombre;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="usrapellidos", type="string", length=45, nullable=false)
+     */
+    private $usrapellidos;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="usrotros", type="string", length=45, nullable=true)
+     */
+    private $usrotros;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="usrID", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $usrid;
+
+    /**
+     * @var \MDM\mdmBundle\Entity\Grupos
+     *
+     * @ORM\ManyToOne(targetEntity="MDM\mdmBundle\Entity\Grupos")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="usrgrupoID", referencedColumnName="grpID")
+     * })
+     */
+    private $usrgrupoid;
+
+
+}

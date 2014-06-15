@@ -1,0 +1,39 @@
+<?php
+
+namespace MDM\mdmBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Grupos
+ *
+ * @ORM\Table(name="grupos", uniqueConstraints={@ORM\UniqueConstraint(name="grpID_UNIQUE", columns={"grpID"})})
+ * @ORM\Entity
+ */
+class Grupos
+{
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="grpnombre", type="string", length=100, nullable=false)
+     */
+    private $grpnombre;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="grpdescripcion", type="string", length=255, nullable=false)
+     */
+    private $grpdescripcion;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="grpID", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $grpid;
+
+
+}
