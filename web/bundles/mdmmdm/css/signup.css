@@ -3,8 +3,8 @@ html {
 }
 
 body {
-   margin: 0;     
-   padding: 0;       
+   margin: 0;
+   padding: 0;
    text-align: justify;
    background: white;
    font-family: "Arial";
@@ -178,7 +178,7 @@ form ul li {
 
 #form_registro {
    position: relative;
-   text-align: center;   
+   text-align: center;
 }
 
 #form_registro li {
@@ -202,7 +202,7 @@ form ul li {
 
 #form_perfil {
    position: relative;
-   text-align: center;   
+   text-align: center;
 }
 
 #form_perfil li {
@@ -219,7 +219,7 @@ form ul li {
 
 .check {
    margin-top: 1%;
-   margin-bottom: 1%; 
+   margin-bottom: 1%;
 }
 
 #descripcion {
@@ -281,7 +281,7 @@ footer {
    margin-bottom: 0.5%;
 }
 
-.footerLinks  {
+.footerLinks {
    height: 100%;
    position: relative;
    line-height: 2.5em;
