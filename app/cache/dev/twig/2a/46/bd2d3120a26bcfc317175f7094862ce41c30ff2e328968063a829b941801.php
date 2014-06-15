@@ -82,11 +82,27 @@ class __TwigTemplate_2a46bd2d3120a26bcfc317175f7094862ce41c30ff2e328968063a829b9
                     
                             
                                 <ul>
-                                    ";
-        // line 59
+                                    
+                                        ";
+        // line 60
         $this->displayBlock('login', $context, $blocks);
+        // line 78
+        echo "                                 </ul>             
+                                    ";
         // line 79
-        echo "                                </ul>
+        if ((isset($context["mensaje"]) ? $context["mensaje"] : $this->getContext($context, "mensaje"))) {
+            echo " 
+                                                    <div id=\"mensaje\">
+                                                        ";
+            // line 81
+            echo twig_escape_filter($this->env, (isset($context["mensaje"]) ? $context["mensaje"] : $this->getContext($context, "mensaje")), "html", null, true);
+            echo "       
+                                                    </div>
+                                    ";
+        }
+        // line 83
+        echo "                
+                                
                             
                                 </section>
                                 
@@ -99,61 +115,59 @@ class __TwigTemplate_2a46bd2d3120a26bcfc317175f7094862ce41c30ff2e328968063a829b9
                 </html>";
     }
 
-    // line 59
+    // line 60
     public function block_login($context, array $blocks = array())
     {
-        // line 60
-        echo "                                ";
+        // line 61
+        echo "                                            ";
         echo         $this->env->getExtension('form')->renderer->renderBlock((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), 'form_start', array("attr" => array("id" => "form_login")));
         echo "
-                                ";
-        // line 61
+                                                ";
+        // line 62
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), 'errors');
         echo "
-                                    ";
-        // line 63
-        echo "                                    ";
+                                                ";
+        // line 64
+        echo "                                                ";
         $this->displayBlock('form_login', $context, $blocks);
-        // line 71
-        echo "                                    ";
+        // line 70
+        echo "                                                ";
         $this->displayBlock('form_password', $context, $blocks);
-        // line 77
-        echo "                                ";
+        // line 76
+        echo "                                            ";
         echo         $this->env->getExtension('form')->renderer->renderBlock((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), 'form_end');
         echo "
-                                ";
+                                        ";
     }
 
-    // line 63
+    // line 64
     public function block_form_login($context, array $blocks = array())
     {
-        // line 64
-        echo "                                     ";
         // line 65
-        echo "
-
-                                        <li>
-                                            ";
-        // line 68
+        echo "                                                    ";
+        // line 66
+        echo "                                                    <li>
+                                                        ";
+        // line 67
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "login"), 'row', array("attr" => array("class" => "campos")));
         echo "
-                                        </li>
-                                    ";
+                                                    </li>
+                                                ";
     }
 
-    // line 71
+    // line 70
     public function block_form_password($context, array $blocks = array())
     {
+        // line 71
+        echo "                                                    ";
         // line 72
-        echo "                                        ";
+        echo "                                                    <li>
+                                                        ";
         // line 73
-        echo "                                        <li>
-                                            ";
-        // line 74
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "password"), 'row', array("attr" => array("class" => "campos")));
         echo "
-                                        </li>
-                                    ";
+                                                    </li>
+                                                ";
     }
 
     public function getTemplateName()
@@ -168,6 +182,6 @@ class __TwigTemplate_2a46bd2d3120a26bcfc317175f7094862ce41c30ff2e328968063a829b9
 
     public function getDebugInfo()
     {
-        return array (  153 => 74,  150 => 73,  148 => 72,  145 => 71,  138 => 68,  133 => 65,  131 => 64,  128 => 63,  121 => 77,  118 => 71,  115 => 63,  111 => 61,  106 => 60,  103 => 59,  89 => 79,  87 => 59,  36 => 11,  31 => 9,  22 => 2,);
+        return array (  167 => 73,  164 => 72,  162 => 71,  159 => 70,  152 => 67,  149 => 66,  147 => 65,  144 => 64,  137 => 76,  134 => 70,  131 => 64,  127 => 62,  122 => 61,  119 => 60,  104 => 83,  98 => 81,  93 => 79,  90 => 78,  88 => 60,  36 => 11,  31 => 9,  22 => 2,);
     }
 }

@@ -135,13 +135,12 @@ class DefaultController extends Controller {
             $user = $em->getRepository('mdmBundle:Users')
                     ->findOneBy(array('login' => $username, 'password' => $userpassword));
             if ($user) {
-
                 return $this->redirect($this->generateUrl("mdm_tasks_user", array("id" => $user->getId())));
             } else {
-                return $this->render('mdmBundle:Users:formularioGrupo.html.twig', array('name' => 'LOGIN FAILED'));
+                return $this->render('mdmBundle:Users:formularioGrupo.html.twig', array('mensaje' => 'Usuario o contraseña incorrectos.', 'form' => $form->createView()));
             }
         }
-        return $this->render('mdmBundle:Users:formularioGrupo.html.twig', array('form' => $form->createView()));
+        return $this->render('mdmBundle:Users:formularioGrupo.html.twig', array('mensaje' => '','form' => $form->createView()));
     }
 
     /* funcion que muestra todas las tareas de un usuario */

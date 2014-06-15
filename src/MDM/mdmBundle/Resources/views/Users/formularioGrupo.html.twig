@@ -56,27 +56,32 @@
                     
                             
                                 <ul>
-                                    {%block login%}
-                                {{ form_start(form ,{'attr':{'id':'form_login'} }) }}
-                                {{ form_errors(form) }}
-                                    {# make the form fragment customization#}
-                                    {% block form_login %}
-                                     {# custom field row output #}
-
-
-                                        <li>
-                                            {{ form_row(form.login ,{'attr':{'class':'campos'} }) }}
-                                        </li>
-                                    {% endblock form_login %}
-                                    {% block form_password %}
-                                        {# custom field row output #}
-                                        <li>
-                                            {{ form_row(form.password ,{'attr':{'class':'campos'} }) }}
-                                        </li>
-                                    {% endblock form_password %}
-                                {{ form_end(form) }}
-                                {%endblock%}
-                                </ul>
+                                    
+                                        {%block login%}
+                                            {{ form_start(form ,{'attr':{'id':'form_login'} }) }}
+                                                {{ form_errors(form) }}
+                                                {# make the form fragment customization#}
+                                                {% block form_login %}
+                                                    {# custom field row output #}
+                                                    <li>
+                                                        {{ form_row(form.login ,{'attr':{'class':'campos'} }) }}
+                                                    </li>
+                                                {% endblock form_login %}
+                                                {% block form_password %}
+                                                    {# custom field row output #}
+                                                    <li>
+                                                        {{ form_row(form.password ,{'attr':{'class':'campos'} }) }}
+                                                    </li>
+                                                {% endblock form_password %}
+                                            {{ form_end(form) }}
+                                        {%endblock%}
+                                 </ul>             
+                                    {% if mensaje %} 
+                                                    <div id="mensaje">
+                                                        {{ mensaje }}       
+                                                    </div>
+                                    {% endif %}                
+                                
                             
                                 </section>
                                 
