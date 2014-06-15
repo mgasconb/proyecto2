@@ -29,7 +29,7 @@ class __TwigTemplate_2a46bd2d3120a26bcfc317175f7094862ce41c30ff2e328968063a829b9
             <link rel=\"stylesheet\" href=\"";
         // line 9
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/mdmmdm/css/styles.css"), "html", null, true);
-        echo "\"
+        echo "\">
             <link href=\"./img/favicon.ico\" rel=\"icon\" type=\"image/x-icon\" />
             <script type=\"text/javascript\" src=\"";
         // line 11
